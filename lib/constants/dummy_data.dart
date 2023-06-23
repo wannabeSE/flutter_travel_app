@@ -1,25 +1,43 @@
-const places = ['Natural', 'Romantic', 'Hiking'];
-const chatImage = <String>['p1.jpeg', 'p2.jpeg', 'p3.jpeg'];
-const suggestionNumber = [32, 62, 32];
-
-List dummyData = [
+List placeData = [
   {
-  'container': {
-    'place':'Natural',
-    'image':'p1.jpeg',
-    'suggestionNumber':32,
+    'container': {
+      'place': 'Natural',
+      'image': 'p1.jpeg',
+      'suggestionNumber': 32,
+    }
+  },
+  {
+    'container': {
+      'place': 'Romantic',
+      'image': 'p2.jpeg',
+      'suggestionNumber': 62,
+    }
+  },
+  {
+    'container': {
+      'place': 'Hiking',
+      'image': 'p3.jpeg',
+      'suggestionNumber': 62,
+    },
   }
-  },{
-  'container': {
-    'place':'Romantic',
-    'image':'p2.jpeg',
-    'suggestionNumber':62,
-  }
-  },{
-  'container': {
-    'place':'Hiking',
-    'image':'p3.jpeg',
-    'suggestionNumber':62,
-  },}
 ];
-
+List locationData = [
+  {
+    'location':{
+      'name':'Mount Dendal',
+      'image':'placeBg.png',
+      'price': 124,
+      'point':'Alaska',
+      'joined':12
+    }
+  },
+  {
+    'location':{
+      'name':'Mount Dendal',
+      'image':'mountains.png',
+      'price': 154,
+      'point':'Nevada',
+      'joined':13
+    }
+  },
+];
