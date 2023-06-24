@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../constants/fonts_and_colors.dart';
 
 class PlaceContainer extends StatelessWidget {
+  final String imagePath, locationType, location;
+  final int price, joinedPerson;
   const PlaceContainer({
     required this.imagePath,
     required this.locationType,
@@ -12,8 +14,7 @@ class PlaceContainer extends StatelessWidget {
     required this.joinedPerson,
     super.key,
   });
-  final String imagePath, locationType, location;
-  final int price, joinedPerson;
+  
   @override
   Widget build(BuildContext context) {
     return Stack(

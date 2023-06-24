@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
+import 'package:travel_app/screens/components/icon_container.dart';
 import 'package:travel_app/screens/components/place_container.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -96,8 +97,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 25),
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 25),
                           child: Container(
                             height: index == 0 ? 197 : 146,
                             width: 155,
@@ -105,7 +105,8 @@ class HomeScreen extends StatelessWidget {
                                 color: index == 0
                                     ? firstPlaceContainerColor
                                     : placeContainerColor,
-                                borderRadius: BorderRadius.circular(32)),
+                                borderRadius: BorderRadius.circular(32)
+                              ),
                             child: Column(
                               children: [
                                 Padding(
@@ -114,22 +115,22 @@ class HomeScreen extends StatelessWidget {
                                     height: 50,
                                     width: 112,
                                     child: Text(
-                                      '${placeData[index]['container']['place']}\nPlace',
+                                      '${placeData[index]['place']}\nPlace',
                                       style: TextStyle(
-                                          fontFamily: sans,
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.w500,
-                                          color: index == 0
-                                              ? Colors.black
-                                              : Colors.white),
+                                        fontFamily: sans,
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w500,
+                                        color: index == 0
+                                            ? Colors.black
+                                            : Colors.white
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Padding(
                                   padding: index == 0
                                       ? const EdgeInsets.fromLTRB(27, 40, 0, 20)
-                                      : const EdgeInsets.fromLTRB(
-                                          27, 12, 0, 20),
+                                      : const EdgeInsets.fromLTRB(27, 12, 0, 20),
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: index == 0
@@ -158,14 +159,14 @@ class HomeScreen extends StatelessWidget {
                                                   radius: 10,
                                                   backgroundColor: Colors.white,
                                                   backgroundImage: AssetImage(
-                                                      'assets/icons/${placeData[i]['container']['image']}'),
+                                                      'assets/icons/${placeData[i]['image']}'),
                                                 ),
                                               ),
                                           ],
                                         ),
                                       ),
                                       Text(
-                                        '${placeData[index]['container']['suggestionNumber']}+',
+                                        '${placeData[index]['suggestionNumber']}+',
                                         style: TextStyle(
                                             fontFamily: sans,
                                             fontSize: 12,
@@ -194,7 +195,8 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: sans,
                         fontSize: 18,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w600
+                    ),
                   ),
                   const SizedBox(
                     width: 145,
@@ -223,11 +225,11 @@ class HomeScreen extends StatelessWidget {
                     return Row(
                       children: [
                         PlaceContainer(
-                          imagePath: locationData[index]['location']['image'],
-                          locationType: locationData[index]['location']['name'],
-                          location: locationData[index]['location']['point'],
-                          price: locationData[index]['location']['price'],
-                          joinedPerson: locationData[index]['location']['joined'],
+                          imagePath: locationData[index]['image'],
+                          locationType: locationData[index]['name'],
+                          location: locationData[index]['point'],
+                          price: locationData[index]['price'],
+                          joinedPerson: locationData[index]['joined'],
                         ),
                       ],
                     );
@@ -242,21 +244,4 @@ class HomeScreen extends StatelessWidget {
 
 
 
-class IconContainer extends StatelessWidget {
-  const IconContainer({
-    required this.iconName,
-    super.key,
-  });
-  final String iconName;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 16,
-      width: 16,
-      decoration: const BoxDecoration(color: iconsBackgroundColor),
-      child: SvgPicture.asset(
-        'assets/icons/$iconName',
-      ),
-    );
-  }
-}
+

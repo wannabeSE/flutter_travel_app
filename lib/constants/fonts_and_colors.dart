@@ -6,3 +6,4 @@ const Color iconsBackgroundColor = Color(0xfffdfffc);
 const Color searchBarColor = Color(0xfffdfffc);
 const Color placeContainerColor = Color(0xff8aac8e);
 const Color firstPlaceContainerColor = Color(0xfff1f2ce);
+const Color categoryColor = Color(0xff9C9C9C);
