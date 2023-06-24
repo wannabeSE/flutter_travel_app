@@ -9,3 +9,4 @@ const Color firstPlaceContainerColor = Color(0xfff1f2ce);
 const Color categoryMainColor = Color(0xff9C9C9C);
 const Color categoryActiveColor = Colors.black;
 const Color categoryActiveIconFontColor = Colors.white;
+const String defaultIconLocation = 'assets/icons/';

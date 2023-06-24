@@ -207,10 +207,11 @@ class HomeScreen extends StatelessWidget {
                     child: const Text(
                       'See All',
                       style: TextStyle(
-                          fontFamily: sans,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black),
+                        fontFamily: sans,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black54
+                      ),
                     ),
                   ),
                 ],
