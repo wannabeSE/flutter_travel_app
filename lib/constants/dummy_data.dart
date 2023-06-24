@@ -17,6 +17,13 @@ List placeData = [
 ];
 List locationData = [
   {
+    'name':'Northern Forest',
+    'image':'leaf.png',
+    'price':124,
+    'point':'Alaska',
+    'joined':12,
+  },
+  {
     'name': 'Mount Dendal',
     'image': 'placeBg.png',
     'price': 124,
@@ -31,4 +38,4 @@ List locationData = [
     'joined': 13
   },
 ];
-List name = ['All', 'Mountain', 'Forest', 'Hills'];
+List categories = ['All', 'Mountain', 'Forest', 'Hills'];

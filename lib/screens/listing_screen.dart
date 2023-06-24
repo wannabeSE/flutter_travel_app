@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/icon_container.dart';
+import 'package:travel_app/screens/components/mini_container.dart';
+import 'package:travel_app/screens/components/place_container.dart';
 
 class ListingScreen extends StatelessWidget {
   const ListingScreen({super.key});
@@ -14,16 +16,23 @@ class ListingScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
+            Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 32.0),
-                  child: IconContainer(iconName: 'arrow_left.svg'),
+                  padding: const EdgeInsets.only(left: 32.0),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: const IconContainer(
+                        iconName: 'arrow_left.svg'
+                    )
+                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 85,
                 ),
-                Text(
+                const Text(
                   'Natural Place',
                   style: TextStyle(
                       fontFamily: sans,
@@ -32,68 +41,100 @@ class ListingScreen extends StatelessWidget {
                 ),
               ],
             ),
-            // Padding(
-            //   padding: const EdgeInsets.fromLTRB(24, 30, 0, 24),
-            //   child: SizedBox(
-            //     height: 40,
-            //     width: 456,
-            //     child:
-            //         ListView(scrollDirection: Axis.horizontal, children: const [
-            //       CategoryContainer(
-            //         width: 88,
-            //         text: 'All',
-            //       ),
-            //       CategoryContainer(width: 126, text: 'Mountain')
-            //     ]),
-            //     // child: ListView.builder(
-            //     //   itemCount: 4,
-            //     //   scrollDirection: Axis.horizontal,
-            //     //   itemBuilder: (context, index) {
-            //     //     return Row(
-            //     //       children: [
-            //     //         Padding(
-            //     //           padding: const EdgeInsets.only(right: 8.0),
-            //     //           child: GestureDetector(
-            //     //             onTap: () {
-            //     //               set
-            //     //             },
-            //     //             child: Container(
-            //     //               height: 40,
-            //     //               width: index == 1 ? 126 : 88,
-            //     //               decoration: BoxDecoration(
-            //     //                   border: Border.all(
-            //     //                       width: 1, color: categoryColor),
-            //     //                   borderRadius: BorderRadius.circular(16)),
-            //     //               child: Row(
-            //     //                 mainAxisAlignment: MainAxisAlignment.center,
-            //     //                 children: [
-            //     //                   SvgPicture.asset(
-            //     //                     'assets/icons/menu.svg',
-            //     //                     color: categoryColor,
-            //     //                   ),
-            //     //                   SizedBox(width: 8),
-            //     //                   Text(
-            //     //                     name[index],
-            //     //                     style: TextStyle(
-            //     //                         fontFamily: sans,
-            //     //                         fontSize: 12,
-            //     //                         fontWeight: FontWeight.w400,
-            //     //                         color: categoryColor),
-            //     //                   )
-            //     //                 ],
-            //     //               ),
-            //     //             ),
-            //     //           ),
-            //     //         )
-            //     //       ],
-            //     //     );
-            //     //   },
-            //     // )
-            //   ),
-            // )
-            Padding(
+            const Padding(
               padding: EdgeInsets.fromLTRB(24, 30, 0, 24),
               child: ListOfCategoryContainers(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 24.0),
+              child: Row(
+                children: [
+                  const SizedBox(
+                    height: 25,
+                    width: 177,
+                    child: Text(
+                      'Popular in Quite Place',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontFamily: sans,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 102,
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'See All',
+                        style: TextStyle(
+                            fontFamily: sans,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black54),
+                      ))
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 206,
+              width: 368,
+              child: ListView.builder(
+                  itemCount: 2,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Row(
+                      children: [
+                        PlaceContainer(
+                          imagePath: locationData[index]['image'],
+                          locationType: locationData[index]['name'],
+                          location: locationData[index]['point'],
+                          price: locationData[index]['price'],
+                          joinedPerson: locationData[index]['joined'],
+                        )
+                      ],
+                    );
+                  }),
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(23, 23, 0, 10),
+              child: Text(
+                'All Natural Places',
+                style: TextStyle(
+                    fontFamily: sans,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600),
+              ),
+            ),
+            SizedBox(
+              height: 218,
+              width: 394,
+              child: Stack(
+                children: [
+                  Center(
+                    child: Container(
+                      height: 201,
+                      width: 327,
+                      decoration: BoxDecoration(
+                          image: const DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage('assets/icons/moon.png')),
+                          borderRadius: BorderRadius.circular(32)),
+                    ),
+                  ),
+                  const MiniContainer(
+                    locationType: 'Dark Mountain',
+                    price: 165,
+                    location: 'Pennsylvania',
+                    joinedPerson: 12,
+                    upperInfoPadding: 110,
+                    lowerInfoPadding: 15,
+                    miniContainerHeight: 72,
+                    miniContainerWidth: 295
+                  )
+                ],
+              ),
             )
           ],
         ),
@@ -140,26 +181,37 @@ class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
                       decoration: BoxDecoration(
                           border: Border.all(
                             width: 1,
-                            color: index == selectedIndex ? Colors.black : categoryColor,
+                            color: index == selectedIndex
+                                ? categoryActiveColor
+                                : categoryMainColor,
                           ),
-                          borderRadius: BorderRadius.circular(16)),
+                          borderRadius: BorderRadius.circular(16),
+                          color: index == selectedIndex
+                            ? categoryActiveColor
+                            : null
+                            ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
                             'assets/icons/menu.svg',
-                            color: index == selectedIndex ? Colors.white : categoryColor,
+                            color: index == selectedIndex
+                                ? categoryActiveIconFontColor
+                                : categoryMainColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
                           Text(
-                            name[index],
+                            categories[index],
                             style: TextStyle(
-                                fontFamily: sans,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: categoryColor),
+                              fontFamily: sans,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: index == selectedIndex
+                                ? categoryActiveIconFontColor
+                                : categoryMainColor
+                            ),
                           ),
                         ],
                       ),
@@ -168,65 +220,8 @@ class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
                 )
               ],
             );
-          }),
+          }
+        ),
     );
   }
 }
-
-// class CategoryContainer extends StatefulWidget {
-//   final double width;
-//   final String text;
-//   const CategoryContainer({
-//     required this.width,
-//     required this.text,
-//     super.key,
-//   });
-
-//   @override
-//   State<CategoryContainer> createState() => _CategoryContainerState();
-// }
-
-// Color color = categoryColor;
-// bool active = false;
-
-// class _CategoryContainerState extends State<CategoryContainer> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: () {
-//         setState(() {
-//           active = !active;
-//         });
-//       },
-//       child: Padding(
-//         padding: const EdgeInsets.only(right: 8.0),
-//         child: Container(
-//           height: 40,
-//           width: widget.width,
-//           decoration: BoxDecoration(
-//               border: Border.all(width: 1, color: active ? Colors.black : categoryColor),
-//               color: Colors.white,
-//               borderRadius: BorderRadius.circular(16)),
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               SvgPicture.asset(
-//                 'assets/icons/menu.svg',
-//                 color: color,
-//               ),
-//               const SizedBox(width: 8),
-//               Text(
-//                 widget.text,
-//                 style: TextStyle(
-//                     fontFamily: sans,
-//                     fontSize: 12,
-//                     fontWeight: FontWeight.w400,
-//                     color: color),
-//               )
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

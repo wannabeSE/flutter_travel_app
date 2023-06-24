@@ -7,7 +7,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/listing',
+      initialRoute: '/splashScreen',
       routes: {
         '/splashScreen' :(context) => const SplashScreen(),
         '/home' :(context) => const HomeScreen(),

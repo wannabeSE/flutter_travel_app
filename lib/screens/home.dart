@@ -97,7 +97,8 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 25),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 25),
                           child: Container(
                             height: index == 0 ? 197 : 146,
                             width: 155,
@@ -105,8 +106,7 @@ class HomeScreen extends StatelessWidget {
                                 color: index == 0
                                     ? firstPlaceContainerColor
                                     : placeContainerColor,
-                                borderRadius: BorderRadius.circular(32)
-                              ),
+                                borderRadius: BorderRadius.circular(32)),
                             child: Column(
                               children: [
                                 Padding(
@@ -117,20 +117,20 @@ class HomeScreen extends StatelessWidget {
                                     child: Text(
                                       '${placeData[index]['place']}\nPlace',
                                       style: TextStyle(
-                                        fontFamily: sans,
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.w500,
-                                        color: index == 0
-                                            ? Colors.black
-                                            : Colors.white
-                                      ),
+                                          fontFamily: sans,
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.w500,
+                                          color: index == 0
+                                              ? Colors.black
+                                              : Colors.white),
                                     ),
                                   ),
                                 ),
                                 Padding(
                                   padding: index == 0
                                       ? const EdgeInsets.fromLTRB(27, 40, 0, 20)
-                                      : const EdgeInsets.fromLTRB(27, 12, 0, 20),
+                                      : const EdgeInsets.fromLTRB(
+                                          27, 12, 0, 20),
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: index == 0
@@ -195,14 +195,15 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: sans,
                         fontSize: 18,
-                        fontWeight: FontWeight.w600
-                    ),
+                        fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(
                     width: 145,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/listing');
+                    },
                     child: const Text(
                       'See All',
                       style: TextStyle(
@@ -241,7 +242,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
