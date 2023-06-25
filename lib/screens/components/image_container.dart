@@ -12,15 +12,17 @@ class ImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: containerHeight,
-      width: containerWidth,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32),
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          image: AssetImage(
-            'assets/icons/$imagePath',
+    return Center(
+      child: Container(
+        height: containerHeight,
+        width: containerWidth,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(32),
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage(
+              'assets/icons/$imagePath',
+            ),
           ),
         ),
       ),

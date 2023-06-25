@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/icon_container.dart';
+import 'package:travel_app/screens/components/image_container.dart';
 import 'package:travel_app/screens/components/mini_container.dart';
 import 'package:travel_app/screens/components/place_container.dart';
 
@@ -109,23 +110,17 @@ class ListingScreen extends StatelessWidget {
                     fontWeight: FontWeight.w600),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 218,
               width: 394,
               child: Stack(
                 children: [
-                  Center(
-                    child: Container(
-                      height: 201,
-                      width: 327,
-                      decoration: BoxDecoration(
-                          image: const DecorationImage(
-                              fit: BoxFit.fill,
-                              image: AssetImage('assets/icons/moon.png')),
-                          borderRadius: BorderRadius.circular(32)),
-                    ),
+                  ImageContainer(
+                    imagePath: 'moon.png', 
+                    containerHeight: 201, 
+                    containerWidth: 327
                   ),
-                  const MiniContainer(
+                  MiniContainer(
                     locationType: 'Dark Mountain',
                     price: 165,
                     location: 'Pennsylvania',

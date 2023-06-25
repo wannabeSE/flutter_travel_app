@@ -17,11 +17,11 @@ List placeData = [
 ];
 List locationData = [
   {
-    'name':'Northern Forest',
-    'image':'leaf.png',
-    'price':124,
-    'point':'Alaska',
-    'joined':12,
+    'name': 'Northern Forest',
+    'image': 'leaf.png',
+    'price': 124,
+    'point': 'Alaska',
+    'joined': 12,
   },
   {
     'name': 'Mount Dendal',
@@ -39,3 +39,4 @@ List locationData = [
   },
 ];
 List categories = ['All', 'Mountain', 'Forest', 'Hills'];
+List profileElements = ['Favorites', 'Wallet', 'About'];
