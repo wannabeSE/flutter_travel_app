@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/appbar_widget.dart';
+import 'package:travel_app/shared/text_style.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key});
-
+  const DetailsScreen({super.key, required this.place});
+  final Map place;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,30 +24,19 @@ class DetailsScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(32, 30, 0, 16),
             child: Container(
-              height: 199,
-              width: 327,
-              decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(32),
-              image: const DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(
-                  'assets/icons/leaf.png',
-                ),
-              ),
-            )
+                height: 199,
+                width: 327,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32),
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/icons/${place['image']}'),
+                  ),
+                )),
           ),
-            // child: ImageContainer(
-            //     imagePath: 'leaf.png',
-            //     containerHeight: 199,
-            //     containerWidth: 327),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 23.0),
-            child: Text(
-              'Northern Forest',
-              style: TextStyle(
-                  fontFamily: sans, fontSize: 24, fontWeight: FontWeight.w500),
-            ),
+          Padding(
+            padding: const EdgeInsets.only(left: 23.0),
+            child: SemiBoldText(text: place['name'], fontSize: 24,),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(24, 8, 0, 26),
@@ -58,13 +48,7 @@ class DetailsScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       SvgPicture.asset('${defaultIconLocation}location.svg'),
-                      const Text(
-                        'Alaska',
-                        style: TextStyle(
-                            fontFamily: sans,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400),
-                      )
+                      NormalText(text: place['point'], fontSize: 12)
                     ],
                   ),
                 ),
@@ -77,13 +61,8 @@ class DetailsScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       SvgPicture.asset('${defaultIconLocation}profile.svg'),
-                      const Text(
-                        '12 Joined',
-                        style: TextStyle(
-                            fontFamily: sans,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400),
-                      )
+                      NormalText(text: '${place['joined']} Joined', fontSize: 12)
+
                     ],
                   ),
                 )
@@ -127,12 +106,9 @@ class DetailsScreen extends StatelessWidget {
                                 child: SizedBox(
                                   height: 44,
                                   width: 77.5,
-                                  child: Text(
-                                    'Choose\nDates',
-                                    style: TextStyle(
-                                        fontFamily: sans,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500),
+                                  child: SemiBoldText(
+                                    text: 'Choose\nDates', 
+                                    fontSize: 20
                                   ),
                                 ),
                               )
@@ -167,11 +143,8 @@ class DetailsScreen extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.only(left: 25.0),
-            child: Text(
-              'About Destination',
-              style: TextStyle(
-                  fontFamily: sans, fontSize: 18, fontWeight: FontWeight.w600),
-            ),
+            child: BoldText(text: 'About Destination', fontSize: 18),
+
           ),
           const Expanded(
               child: SingleChildScrollView(
@@ -192,14 +165,8 @@ class DetailsScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(35))),
                   onPressed: () {},
-                  child: const Text(
-                    'Book Now',
-                    style: TextStyle(
-                        fontFamily: sans,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white),
-                  )),
+                  child: const SemiBoldText(text: 'Book Now', fontSize: 20,),
+                ),
             ),
           )
         ],
@@ -207,8 +174,6 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 class ExpandTextWidget extends StatefulWidget {
   final String text;
@@ -255,13 +220,8 @@ class _ExpandTextWidgetState extends State<ExpandTextWidget> {
                             flag = !flag;
                           });
                         },
-                        child: const Text(
-                          '...Read More',
-                          style: TextStyle(
-                              fontFamily: sans,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600),
-                        ),
+                        child: const BoldText(text: '...Read More', fontSize: 14),
+                        
                       ),
                     ],
                   )
@@ -312,13 +272,7 @@ class DetailsMiniInfoContainer extends StatelessWidget {
                     const SizedBox(
                       width: 11,
                     ),
-                    Text(
-                      value,
-                      style: const TextStyle(
-                          fontFamily: sans,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500),
-                    )
+                    SemiBoldText(text: value, fontSize: 20)
                   ],
                 ),
               )

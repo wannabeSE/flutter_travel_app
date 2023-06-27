@@ -4,7 +4,7 @@ import 'package:travel_app/screens/components/mini_container.dart';
 
 class PlaceContainer extends StatelessWidget {
   final String imagePath, locationType, location;
-  final int price, joinedPerson;
+  final String price, joinedPerson;
   const PlaceContainer({
     required this.imagePath,
     required this.locationType,

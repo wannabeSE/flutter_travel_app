@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/screens/components/icon_container.dart';
+import 'package:travel_app/shared/text_style.dart';
 
-import '../../constants/fonts_and_colors.dart';
 
 class AppBarWidget extends StatelessWidget {
   final String leftIconPath, text, rightIconPath;
@@ -28,14 +28,7 @@ class AppBarWidget extends StatelessWidget {
         SizedBox(
           width: leftIconDistance,
         ),
-        Text(
-          text,
-          style: const TextStyle(
-              fontFamily: sans, 
-              fontSize: 20, 
-              fontWeight: FontWeight.w500
-            ),
-        ),
+        SemiBoldText(text: text, fontSize: 20),
         SizedBox(
           width: rightIconDistance,
         ),

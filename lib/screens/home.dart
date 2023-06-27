@@ -4,6 +4,8 @@ import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/icon_container.dart';
 import 'package:travel_app/screens/components/place_container.dart';
+import 'package:travel_app/screens/details_screen.dart';
+import 'package:travel_app/shared/text_style.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,18 +27,8 @@ class HomeScreen extends StatelessWidget {
                     )),
                 Column(
                   children: [
-                    Text('Location',
-                        style: TextStyle(
-                            fontFamily: sans,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400)),
-                    Text(
-                      'South City,Florida',
-                      style: TextStyle(
-                          fontFamily: sans,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500),
-                    )
+                    NormalText(text: 'Location', fontSize: 12),
+                    SemiBoldText(text: 'South City, Florida', fontSize: 12)
                   ],
                 ),
                 Padding(
@@ -74,17 +66,14 @@ class HomeScreen extends StatelessWidget {
                             'assets/icons/search.svg',
                           ),
                         ),
-                      )),
+                      )
+                    ),
                 ),
               ),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 24),
-              child: Text('Where do you want to be?',
-                  style: TextStyle(
-                      fontFamily: sans,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600)),
+              child: BoldText(text: 'Where do you want to be?', fontSize: 18),
             ),
             SizedBox(
               height: 250,
@@ -190,13 +179,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Row(
                 children: [
-                  const Text(
-                    'Recommended',
-                    style: TextStyle(
-                        fontFamily: sans,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600),
-                  ),
+                  const BoldText(text: 'Recommended', fontSize: 18),
                   const SizedBox(
                     width: 145,
                   ),
@@ -226,12 +209,21 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Row(
                       children: [
-                        PlaceContainer(
-                          imagePath: locationData[index]['image'],
-                          locationType: locationData[index]['name'],
-                          location: locationData[index]['point'],
-                          price: locationData[index]['price'],
-                          joinedPerson: locationData[index]['joined'],
+                        GestureDetector(
+                          onTap: () {
+                              Navigator.push(context, 
+                              MaterialPageRoute(builder: (context)=>
+                              DetailsScreen(place: locationData[index])
+                              )
+                            );
+                          },
+                          child: PlaceContainer(
+                            imagePath: locationData[index]['image'],
+                            locationType: locationData[index]['name'],
+                            location: locationData[index]['point'],
+                            price: locationData[index]['price'],
+                            joinedPerson: locationData[index]['joined'],
+                          ),
                         ),
                       ],
                     );
@@ -242,45 +234,6 @@ class HomeScreen extends StatelessWidget {
         ),
         
       ),
-      //bottomNavigationBar: BottomNavBar(),
-//       bottomNavigationBar: Padding(
-//         padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
-//         child: Stack(
-//             children: [
-//               Container(
-//                 height: 70,
-//                 width: 327,
-//                 decoration: BoxDecoration(
-//                     color: Colors.black, borderRadius: BorderRadius.circular(35)),
-//               ),
-//               Padding(
-//                 padding: const EdgeInsets.fromLTRB(41, 23, 50, 15),
-//                 child: SizedBox(
-//                     height: 32,
-//                     width: 246,
-//                     child:BottomNavigationBar(
-//                       items: [
-//                         BottomNavigationBarItem(
-//                           label: '',
-//                           icon: CircleAvatar(
-//                             radius: 12,
-//                             child: Image.asset('assets/icons/new_discovery.png'),
-//                           )
-//                         ),
-//                         BottomNavigationBarItem(
-//                           label: '',
-//                           icon: CircleAvatar(
-//                             radius: 12,
-//                             child: Image.asset('assets/icons/new_discovery.png'),
-//                           )
-//                         )
-//                       ]
-//                     ) ,
-//                 ),
-//               ),
-//             ],
-//           ),
-//       ),
     );
   }
 }

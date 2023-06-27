@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/screens/components/mini_container.dart';
 class ImageContainer extends StatelessWidget {
   final String imagePath, locationType, location;
-  final int price, joinedPerson;
+  final String price, joinedPerson;
   final double containerHeight, containerWidth, upperInfoPadding, lowerInfoPadding, miniContainerHeight, miniContainerWidth;
   const ImageContainer({
     super.key,

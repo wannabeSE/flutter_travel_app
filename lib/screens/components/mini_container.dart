@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
+import 'package:travel_app/shared/text_style.dart';
 
 class MiniContainer extends StatelessWidget {
   final String locationType;
-  final int price, joinedPerson;
+  final String price, joinedPerson;
   final String location;
   final double upperInfoPadding, lowerInfoPadding, miniContainerHeight, miniContainerWidth;
   const MiniContainer({
@@ -52,13 +53,7 @@ class MiniContainer extends StatelessWidget {
                     SizedBox(
                       width: upperInfoPadding,
                     ),
-                    Text(
-                      '\$$price',
-                      style: const TextStyle(
-                          fontFamily: sans,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600),
-                    )
+                    BoldText(text: '\$$price', fontSize: 16)
                   ],
                 ),
               ),
@@ -69,24 +64,12 @@ class MiniContainer extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset('assets/icons/location.svg'),
-                    Text(
-                      location,
-                      style: const TextStyle(
-                          fontFamily: sans,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
-                    ),
+                    NormalText(text: location, fontSize: 12),
                     SizedBox(
                       width: lowerInfoPadding,
                     ),
                     SvgPicture.asset('assets/icons/profile.svg'),
-                    Text(
-                      '$joinedPerson joined',
-                      style: const TextStyle(
-                          fontFamily: sans,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
-                    )
+                    NormalText(text: '$joinedPerson joined', fontSize: 12)
                   ],
                 ),
               )

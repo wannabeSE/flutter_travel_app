@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/screens/components/bottom_navigation_bar.dart';
-import 'package:travel_app/screens/details_screen.dart';
+import 'package:travel_app/screens/main_screen.dart';
 import 'package:travel_app/screens/home.dart';
 import 'package:travel_app/screens/listing_screen.dart';
 import 'package:travel_app/screens/profile_screen.dart';
@@ -16,7 +15,6 @@ void main() {
         '/main' :(context) => const MainScreen(),
         '/home' :(context) => const HomeScreen(),
         '/listing' :(context) => const ListingScreen(),
-        '/details' :(context) => const DetailsScreen(),
         '/profile' : (context) => const ProfileScreen(),
         
       },

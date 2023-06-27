@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 
+import '../shared/text_style.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -65,14 +67,7 @@ class SplashScreen extends StatelessWidget {
                               backgroundColor: Colors.black,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(35))),
-                          child: const Text(
-                            'Get Started',
-                            style: TextStyle(
-                                fontFamily: sans,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
+                          child: const SemiBoldText(text: 'Get Started', fontSize: 20),
                         )),
                   )
                 ],

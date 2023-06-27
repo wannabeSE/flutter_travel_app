@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/appbar_widget.dart';
 import 'package:travel_app/screens/components/image_container.dart';
+import 'package:travel_app/shared/text_style.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -43,11 +44,7 @@ class ProfileScreen extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const Text(
-            'Sam Smith',
-            style: TextStyle(
-                fontFamily: sans, fontSize: 24, fontWeight: FontWeight.w600),
-          ),
+          const BoldText(text: 'Sam Smith', fontSize: 24),
           const SizedBox(
             height: 8,
           ),
@@ -93,9 +90,9 @@ class ProfileScreen extends StatelessWidget {
                 containerHeight: 201,
                 containerWidth: 327,
                 locationType: 'Dark Mountain',
-                price: 165,
+                price: '165',
                 location: 'Pennsylvania',
-                joinedPerson: 12,
+                joinedPerson: '12',
                 upperInfoPadding: 110,
                 lowerInfoPadding: 15,
                 miniContainerHeight: 72,

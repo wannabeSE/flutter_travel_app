@@ -19,23 +19,23 @@ List locationData = [
   {
     'name': 'Northern Forest',
     'image': 'leaf.png',
-    'price': 124,
+    'price': '124',
     'point': 'Alaska',
-    'joined': 12,
+    'joined': '12',
   },
   {
     'name': 'Mount Dendal',
     'image': 'placeBg.png',
-    'price': 124,
+    'price': '124',
     'point': 'Alaska',
-    'joined': 12
+    'joined': '12'
   },
   {
     'name': 'Mount Dendal',
     'image': 'mountains.png',
-    'price': 154,
+    'price': '154',
     'point': 'Nevada',
-    'joined': 13
+    'joined': '13'
   },
 ];
 
