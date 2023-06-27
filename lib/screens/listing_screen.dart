@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/icon_container.dart';
@@ -137,7 +136,7 @@ class ListOfCategoryContainers extends StatefulWidget {
 }
 
 class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
-  int selectedIndex = -1;
+  int selectedIndex = 0;
   List categories = ['All', 'Mountain', 'Forest', 'Hills'];
   @override
   Widget build(BuildContext context) {
@@ -175,8 +174,10 @@ class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SvgPicture.asset(
-                            'assets/icons/menu.svg',
+                          Image.asset(
+                            'assets/icons/category.png',
+                            height: 16,
+                            width: 16,
                             color: index == selectedIndex
                                 ? categoryActiveIconFontColor
                                 : categoryMainColor,
