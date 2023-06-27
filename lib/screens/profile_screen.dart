@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/appbar_widget.dart';
 import 'package:travel_app/screens/components/image_container.dart';
-import 'package:travel_app/screens/components/mini_container.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +35,9 @@ class ProfileScreen extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 60,
                   backgroundColor: circleAvatarColor,
-                  foregroundImage: AssetImage('assets/icons/p1.jpeg'),
+                  foregroundImage: AssetImage('assets/icons/dp.png'),
                 ),
-              )
+              ),
             ],
           ),
           const SizedBox(
@@ -84,35 +81,25 @@ class ProfileScreen extends StatelessWidget {
           const SizedBox(
             height: 24,
           ),
-          const SizedBox(
-            height: 32,
-            width: 236,
-            child: ProfileElements()
-          ),
+          const SizedBox(height: 32, width: 236, child: ProfileElements()),
           const SizedBox(
             height: 24,
           ),
           const SizedBox(
             height: 218,
             width: 394,
-            child: Stack(
-              children: [
-                ImageContainer(
-                  imagePath: 'moon.png', 
-                  containerHeight: 201, 
-                  containerWidth: 327
-                ),
-                MiniContainer(
-                  locationType: 'Dark Mountain', 
-                  price: 165, 
-                  location: 'Pennsylvania', 
-                  joinedPerson: 12, 
-                  upperInfoPadding: 110, 
-                  lowerInfoPadding: 15, 
-                  miniContainerHeight: 72, 
-                  miniContainerWidth: 295
-                )
-              ],
+            child: ImageContainer(
+                imagePath: 'moon.png',
+                containerHeight: 201,
+                containerWidth: 327,
+                locationType: 'Dark Mountain',
+                price: 165,
+                location: 'Pennsylvania',
+                joinedPerson: 12,
+                upperInfoPadding: 110,
+                lowerInfoPadding: 15,
+                miniContainerHeight: 72,
+                miniContainerWidth: 295
             ),
           )
         ],
@@ -133,7 +120,7 @@ class ProfileElements extends StatefulWidget {
 int selectedIndex = 0;
 Color activeColor = Colors.black;
 Color inactiveColor = const Color(0xff9c9c9c);
-
+List profileElements = ['Favorites', 'Wallet', 'About'];
 class _ProfileElementsState extends State<ProfileElements> {
   @override
   Widget build(BuildContext context) {
@@ -141,8 +128,7 @@ class _ProfileElementsState extends State<ProfileElements> {
       itemCount: profileElements.length,
       scrollDirection: Axis.horizontal,
       physics: const NeverScrollableScrollPhysics(),
-      itemBuilder:(context, index)=>
-      InkWell(
+      itemBuilder: (context, index) => InkWell(
         onTap: () {
           setState(() {
             selectedIndex = index;
@@ -155,27 +141,24 @@ class _ProfileElementsState extends State<ProfileElements> {
               Text(
                 profileElements[index],
                 style: TextStyle(
-                  fontFamily: sans, 
-                  fontSize: 16, fontWeight: 
-                  FontWeight.w500,
-                  color: index == selectedIndex 
-                  ? activeColor 
-                  : inactiveColor
-                ),
-              ),
-              const SizedBox(
-                height: 4,
-              ),
-              Container(
-                height: 8,
-                width: 8,
-                decoration:BoxDecoration(
-                  color: index == selectedIndex 
-                  ? Colors.black 
-                  : null, 
-                  shape: BoxShape.circle
-                ),
-              )
+                    fontFamily: sans,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color:
+                      index == selectedIndex ? activeColor : inactiveColor
+                    ),
+                  ),
+                  const SizedBox(
+                  height: 4,
+                  ),
+                  Container(
+                    height: 8,
+                    width: 8,
+                    decoration: BoxDecoration(
+                      color: index == selectedIndex ? Colors.black : null,
+                      shape: BoxShape.circle
+                    ),
+                  )
             ],
           ),
         ),

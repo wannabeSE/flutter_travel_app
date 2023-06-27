@@ -235,11 +235,52 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     );
-                  }),
-            )
+                  }
+                ),
+            ),
           ],
         ),
+        
       ),
+      //bottomNavigationBar: BottomNavBar(),
+//       bottomNavigationBar: Padding(
+//         padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
+//         child: Stack(
+//             children: [
+//               Container(
+//                 height: 70,
+//                 width: 327,
+//                 decoration: BoxDecoration(
+//                     color: Colors.black, borderRadius: BorderRadius.circular(35)),
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.fromLTRB(41, 23, 50, 15),
+//                 child: SizedBox(
+//                     height: 32,
+//                     width: 246,
+//                     child:BottomNavigationBar(
+//                       items: [
+//                         BottomNavigationBarItem(
+//                           label: '',
+//                           icon: CircleAvatar(
+//                             radius: 12,
+//                             child: Image.asset('assets/icons/new_discovery.png'),
+//                           )
+//                         ),
+//                         BottomNavigationBarItem(
+//                           label: '',
+//                           icon: CircleAvatar(
+//                             radius: 12,
+//                             child: Image.asset('assets/icons/new_discovery.png'),
+//                           )
+//                         )
+//                       ]
+//                     ) ,
+//                 ),
+//               ),
+//             ],
+//           ),
+//       ),
     );
   }
 }

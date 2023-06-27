@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/appbar_widget.dart';
-import 'package:travel_app/screens/components/image_container.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
@@ -21,12 +20,25 @@ class DetailsScreen extends StatelessWidget {
             leftIconDistance: 116.5,
             rightIconDistance: 104,
           ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(32, 30, 0, 16),
-            child: ImageContainer(
-                imagePath: 'leaf.png',
-                containerHeight: 199,
-                containerWidth: 327),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(32, 30, 0, 16),
+            child: Container(
+              height: 199,
+              width: 327,
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(32),
+              image: const DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(
+                  'assets/icons/leaf.png',
+                ),
+              ),
+            )
+          ),
+            // child: ImageContainer(
+            //     imagePath: 'leaf.png',
+            //     containerHeight: 199,
+            //     containerWidth: 327),
           ),
           const Padding(
             padding: EdgeInsets.only(left: 23.0),

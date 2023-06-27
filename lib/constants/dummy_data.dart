@@ -1,17 +1,17 @@
 List placeData = [
   {
     'place': 'Natural',
-    'image': 'p1.jpeg',
+    'image': 'ellipse_1.png',
     'suggestionNumber': 32,
   },
   {
     'place': 'Romantic',
-    'image': 'p2.jpeg',
+    'image': 'ellipse_2.png',
     'suggestionNumber': 62,
   },
   {
     'place': 'Hiking',
-    'image': 'p3.jpeg',
+    'image': 'ellipse_3.png',
     'suggestionNumber': 62,
   }
 ];
@@ -38,5 +38,5 @@ List locationData = [
     'joined': 13
   },
 ];
-List categories = ['All', 'Mountain', 'Forest', 'Hills'];
-List profileElements = ['Favorites', 'Wallet', 'About'];
+
+

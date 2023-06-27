@@ -4,7 +4,6 @@ import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/icon_container.dart';
 import 'package:travel_app/screens/components/image_container.dart';
-import 'package:travel_app/screens/components/mini_container.dart';
 import 'package:travel_app/screens/components/place_container.dart';
 
 class ListingScreen extends StatelessWidget {
@@ -113,24 +112,18 @@ class ListingScreen extends StatelessWidget {
             const SizedBox(
               height: 218,
               width: 394,
-              child: Stack(
-                children: [
-                  ImageContainer(
-                    imagePath: 'moon.png', 
-                    containerHeight: 201, 
-                    containerWidth: 327
-                  ),
-                  MiniContainer(
-                    locationType: 'Dark Mountain',
-                    price: 165,
-                    location: 'Pennsylvania',
-                    joinedPerson: 12,
-                    upperInfoPadding: 110,
-                    lowerInfoPadding: 15,
-                    miniContainerHeight: 72,
-                    miniContainerWidth: 295
-                  )
-                ],
+              child: ImageContainer(
+                imagePath: 'moon.png', 
+                containerHeight: 201, 
+                containerWidth: 327,
+                locationType: 'Dark Mountain',
+                price: 165,
+                location: 'Pennsylvania',
+                joinedPerson: 12,
+                upperInfoPadding: 110,
+                lowerInfoPadding: 15,
+                miniContainerHeight: 72,
+                miniContainerWidth: 295
               ),
             )
           ],
@@ -144,7 +137,7 @@ class ListOfCategoryContainers extends StatefulWidget {
   const ListOfCategoryContainers({
     super.key,
   });
-
+  
   @override
   State<ListOfCategoryContainers> createState() =>
       _ListOfCategoryContainersState();
@@ -152,7 +145,7 @@ class ListOfCategoryContainers extends StatefulWidget {
 
 class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
   int selectedIndex = -1;
-
+  List categories = ['All', 'Mountain', 'Forest', 'Hills'];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
