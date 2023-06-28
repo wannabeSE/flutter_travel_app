@@ -151,12 +151,12 @@ class DetailsScreen extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(left: 25.w, right: 24.w, top: 16.h),
-              child: const Wrap(
+              child: Wrap(
                 children: [
                   NormalText(text: 'Denali also known as Mount McKinley, its the official name. Which is the highest mountain peak in North America.',
-                  fontSize: 14
+                  fontSize: 14.sp
                 ),
-                BoldText(text: '...Read More', fontSize: 14)
+                BoldText(text: '...Read More', fontSize: 14.sp)
                 ],
               ),
             ),
@@ -179,72 +179,6 @@ class DetailsScreen extends StatelessWidget {
             )
           ],
         )),
-      ),
-    );
-  }
-}
-
-class ExpandTextWidget extends StatefulWidget {
-  final String text;
-  const ExpandTextWidget({
-    super.key,
-    required this.text,
-  });
-
-  @override
-  State<ExpandTextWidget> createState() => _ExpandTextWidgetState();
-}
-
-class _ExpandTextWidgetState extends State<ExpandTextWidget> {
-  late String firstHalfText, secondHalfText;
-  bool flag = false;
-
-  @override
-  void initState() {
-    if (widget.text.length > 50) {
-      firstHalfText = widget.text.substring(0, 50);
-      secondHalfText = widget.text.substring(51, widget.text.length);
-    } else {
-      firstHalfText = widget.text;
-      secondHalfText.isEmpty;
-    }
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(26.w, 16.h, 23.w, 29.h),
-      child: SizedBox(
-        //height: 100.h,
-        width: 326.w,
-        child: secondHalfText.isEmpty
-            ? Text(widget.text)
-            : Column(
-                children: [
-                  Text(
-                    flag ? firstHalfText : widget.text,
-                    style: TextStyle(
-                      fontFamily: sans,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            flag = !flag;
-                          });
-                        },
-                        child: BoldText(text: '...Read More', fontSize: 14.sp),
-                        
-                      ),
-                    ],
-                  )
-                ],
-              ),
       ),
     );
   }
