@@ -11,102 +11,104 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: Column(
-            children: [
-              const AppBarWidget(),
-              SizedBox(
-                height: 30.h,
-              ),
-              Stack(
-                children: [
-                  Container(
-                    height: 140.h,
-                    width: 140.w,
-                    decoration: BoxDecoration(
-                      color: circularContainerColorWithOpacity,
-                      shape: BoxShape.circle
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.0.w),
-                    child: CircleAvatar(
-                      radius: 60.r,
-                      backgroundColor: circleAvatarColor,
-                      foregroundImage: const AssetImage('assets/icons/dp.png'),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 16.h,
-              ),
-              BoldText(text: 'Sam Smith', fontSize: 24.sp),
-              SizedBox(
-                height: 8.h,
-              ),
-              Text(
-                'Premium Member',
-                style: TextStyle(
-                  fontFamily: sans,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xff9c9c9c)
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: Column(
+              children: [
+                const AppBarWidget(),
+                SizedBox(
+                  height: 30.h,
                 ),
-              ),
-              SizedBox(
-                height: 24.h,
-              ),
-              SizedBox(
-                width: 144.h,
-                child: Row(
+                Stack(
                   children: [
-                    const SocialIconContainer(
-                      iconName: 'facebook.svg',
+                    Container(
+                      height: 140.h,
+                      width: 140.w,
+                      decoration: BoxDecoration(
+                        color: circularContainerColorWithOpacity,
+                        shape: BoxShape.circle
+                      ),
                     ),
-                    SizedBox(width: 8.w,),
-                    const SocialIconContainer(
-                      iconName: 'twitter.svg',
+                    Padding(
+                      padding: EdgeInsets.all(10.0.w),
+                      child: CircleAvatar(
+                        radius: 60.r,
+                        backgroundColor: circleAvatarColor,
+                        foregroundImage: const AssetImage('assets/icons/dp.png'),
+                      ),
                     ),
-                    SizedBox(width: 8.w,),
-                    const SocialIconContainer(
-                      iconName: 'instagram.svg',
-                    )
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 24.h,
-              ),
-              SizedBox(
-                height: 32.h, 
-                width: 212.w, 
-                child: const ProfileElements()
-              ),
-              SizedBox(
-                height: 24.h,
-              ),
-              Container(
-                height: 218.h,
-                width: 394.w,
-                margin: EdgeInsets.fromLTRB(25.w, 11.h, 23.w, 6.h),
-                child: ImageContainer(
-                  imagePath: 'moon.png',
-                  containerHeight: 201.h,
-                  containerWidth: 327.w,
-                  locationType: 'Dark Mountain',
-                  price: '165',
-                  location: 'Pennsylvania',
-                  joinedPerson: '12',
-                  upperInfoPadding: 110.w,
-                  lowerInfoPadding: 15.w,
-                  miniContainerHeight: 72.h,
-                  miniContainerWidth: 295.w,
-                  locationTextContainerWidth: 96.w,
+                SizedBox(
+                  height: 16.h,
                 ),
-              )
-            ],
-        )
+                BoldText(text: 'Sam Smith', fontSize: 24.sp),
+                SizedBox(
+                  height: 8.h,
+                ),
+                Text(
+                  'Premium Member',
+                  style: TextStyle(
+                    fontFamily: sans,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xff9c9c9c)
+                  ),
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                SizedBox(
+                  width: 144.h,
+                  child: Row(
+                    children: [
+                      const SocialIconContainer(
+                        iconName: 'facebook.svg',
+                      ),
+                      SizedBox(width: 8.w,),
+                      const SocialIconContainer(
+                        iconName: 'twitter.svg',
+                      ),
+                      SizedBox(width: 8.w,),
+                      const SocialIconContainer(
+                        iconName: 'instagram.svg',
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                SizedBox(
+                  height: 32.h, 
+                  width: 212.w, 
+                  child: const ProfileElements()
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                Container(
+                  height: 218.h,
+                  width: 394.w,
+                  margin: EdgeInsets.fromLTRB(25.w, 11.h, 23.w, 6.h),
+                  child: ImageContainer(
+                    imagePath: 'moon.png',
+                    containerHeight: 201.h,
+                    containerWidth: 327.w,
+                    locationType: 'Dark Mountain',
+                    price: '165',
+                    location: 'Pennsylvania',
+                    joinedPerson: '12',
+                    upperInfoPadding: 110.w,
+                    lowerInfoPadding: 15.w,
+                    miniContainerHeight: 72.h,
+                    miniContainerWidth: 295.w,
+                    locationTextContainerWidth: 96.w,
+                  ),
+                )
+              ],
+          )
+        ),
       ),
     );
   }
