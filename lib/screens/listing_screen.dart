@@ -27,7 +27,7 @@ class ListingScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                         onTap: () {
-                          Navigator.pop(context);
+                          Navigator.pushNamed(context, '/main');
                         },
                         child: const IconContainer(iconName: 'arrow_left.svg')
                       ),

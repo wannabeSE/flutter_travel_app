@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
-import 'package:travel_app/screens/components/appbar_widget.dart';
+
 import 'package:travel_app/shared/text_style.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -14,13 +14,13 @@ class DetailsScreen extends StatelessWidget {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppBarWidget(
-            leftIconPath: 'arrow_left.svg',
-            text: 'Details',
-            rightIconPath: 'bookmark.svg',
-            leftIconDistance: 116.5,
-            rightIconDistance: 104,
-          ),
+          // const AppBarWidget(
+          //   leftIconPath: 'arrow_left.svg',
+          //   text: 'Details',
+          //   rightIconPath: 'bookmark.svg',
+          //   leftIconDistance: 116.5,
+          //   rightIconDistance: 104,
+          // ),
           Padding(
             padding: const EdgeInsets.fromLTRB(32, 30, 0, 16),
             child: Container(
