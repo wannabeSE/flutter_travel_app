@@ -11,170 +11,175 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AppBarWidget(
-            text: 'Details',
-            route: 'home',
-            leftIconGap: 99.w,
-            rightIconGap: 96.w,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(24.w, 30.h, 24.w, 16.h),
-            child: Container(
-                height: 199.h,
-                width: 327.w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32.r),
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/icons/${place['image']}'),
-                  ),
-                )
-              ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 23.0.w),
-            child: SemiBoldText(text: place['name'], fontSize: 24.sp,),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(24.w, 8.h, 0, 26.h),
-            child: Row(
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 16.h,
-                  width: 59.w,
-                  child: Row(
-                    children: [
-                      SvgPicture.asset('${defaultIconLocation}location.svg',height: 16.h,width: 16.h,),
-                      NormalText(text: place['point'], fontSize: 12.sp)
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 42.w,
-                ),
-                SizedBox(
-                  height: 16.h,
-                  width: 75.w,
-                  child: Row(
-                    children: [
-                      SvgPicture.asset('${defaultIconLocation}profile.svg',height: 16.h, width: 16.w,),
-                      NormalText(text: '${place['joined']} Joined', fontSize: 12.sp)
-
-                    ],
-                  ),
-                )
-              ],
+            AppBarWidget(
+              text: 'Details',
+              route: 'home',
+              leftIconGap: 99.w,
+              rightIconGap: 96.w,
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(24.w, 0, 0, 24.h),
-            child: SizedBox(
-              height: 160.h,
-              width: 327.w,
+            Padding(
+              padding: EdgeInsets.fromLTRB(24.w, 30.h, 24.w, 16.h),
+              child: Container(
+                  height: 199.h,
+                  width: 327.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(32.r),
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/icons/${place['image']}'),
+                    ),
+                  )
+                ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 23.0.w),
+              child: SemiBoldText(text: place['name'], fontSize: 24.sp,),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(24.w, 8.h, 0, 26.h),
               child: Row(
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                        height: 160.h,
-                        width: 156.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32.r),
-                            color: searchBarColor,
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0x0a141513),
-                                blurRadius: 25.r,
-                                offset: Offset(0, 4.sp),
-                              )
-                            ]),
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(24.w, 32.h, 0, 0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                '${defaultIconLocation}itinerary.png',
-                                height: 48.h,
-                                width: 48.w,
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 10.0.h),
-                                child: SizedBox(
-                                  height: 44.h,
-                                  width: 77.5.w,
-                                  child: SemiBoldText(
-                                    text: 'Choose\nDates', 
-                                    fontSize: 20.sp
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
+                  SizedBox(
+                    height: 16.h,
+                    width: 59.w,
+                    child: Row(
+                      children: [
+                        SvgPicture.asset('${defaultIconLocation}location.svg',height: 16.h,width: 16.h,),
+                        NormalText(text: place['point'], fontSize: 12.sp)
+                      ],
+                    ),
                   ),
                   SizedBox(
-                    width: 16.w,
+                    width: 42.w,
                   ),
-                  Column(
-                    children: [
-                      const DetailsMiniInfoContainer(
-                        imageName: 'weather.png',
-                        text: 'Mon 07 Oct',
-                        value: '24°',
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      ),
-                      const DetailsMiniInfoContainer(
-                        text: 'Package Start',
-                        imageName: 'save_money.png',
-                        value: '\$124'
-                      )
-                    ],
-                  ),
+                  SizedBox(
+                    height: 16.h,
+                    width: 75.w,
+                    child: Row(
+                      children: [
+                        SvgPicture.asset('${defaultIconLocation}profile.svg',height: 16.h, width: 16.w,),
+                        NormalText(text: '${place['joined']} Joined', fontSize: 12.sp)
+                
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 25.0.w),
-            child: BoldText(text: 'About Destination', fontSize: 18.sp),
-
-          ),
-          const Expanded(
-              child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: ExpandTextWidget(
-              text:
-                  'Denali also known as Mount McKinley, its the official name. Which is the highest mountain peak in North America.',
-            ),
-          )),
-          Padding(
-            padding: EdgeInsets.fromLTRB(24.w, 29.h, 24.w, 26.h),
-            child: SizedBox(
-              height: 70.h,
-              width: 327.w,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(35.r)
-                    )
-                  ),
-                  onPressed: () {},
-                  child: SemiBoldText(text: 'Book Now', fontSize: 20.sp,),
+            Padding(
+              padding: EdgeInsets.fromLTRB(24.w, 0, 0, 24.h),
+              child: SizedBox(
+                height: 160.h,
+                width: 327.w,
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          height: 160.h,
+                          width: 156.w,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32.r),
+                              color: searchBarColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0x0a141513),
+                                  blurRadius: 25.r,
+                                  offset: Offset(0, 4.sp),
+                                )
+                              ]),
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(24.w, 32.h, 0, 0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  '${defaultIconLocation}itinerary.png',
+                                  height: 48.h,
+                                  width: 48.w,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 10.0.h),
+                                  child: SizedBox(
+                                    height: 44.h,
+                                    width: 77.5.w,
+                                    child: SemiBoldText(
+                                      text: 'Choose\nDates', 
+                                      fontSize: 20.sp
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      width: 16.w,
+                    ),
+                    Column(
+                      children: [
+                        const DetailsMiniInfoContainer(
+                          imageName: 'weather.png',
+                          text: 'Mon 07 Oct',
+                          value: '24°',
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        const DetailsMiniInfoContainer(
+                          text: 'Package Start',
+                          imageName: 'save_money.png',
+                          value: '\$124'
+                        )
+                      ],
+                    ),
+                  ],
                 ),
+              ),
             ),
-          )
-        ],
-      )),
+            Padding(
+              padding: EdgeInsets.only(left: 25.0.w),
+              child: BoldText(text: 'About Destination', fontSize: 18.sp),
+                
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 25.w, right: 24.w, top: 16.h),
+              child: const Wrap(
+                children: [
+                  NormalText(text: 'Denali also known as Mount McKinley, its the official name. Which is the highest mountain peak in North America.',
+                  fontSize: 14
+                ),
+                BoldText(text: '...Read More', fontSize: 14)
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(24.w, 29.h, 24.w, 26.h),
+              child: SizedBox(
+                height: 70.h,
+                width: 327.w,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(35.r)
+                      )
+                    ),
+                    onPressed: () {},
+                    child: SemiBoldText(text: 'Book Now', fontSize: 20.sp,),
+                  ),
+              ),
+            )
+          ],
+        )),
+      ),
     );
   }
 }
@@ -210,7 +215,9 @@ class _ExpandTextWidgetState extends State<ExpandTextWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(26.w, 16.h, 23.w, 29.h),
-      child: Container(
+      child: SizedBox(
+        //height: 100.h,
+        width: 326.w,
         child: secondHalfText.isEmpty
             ? Text(widget.text)
             : Column(
