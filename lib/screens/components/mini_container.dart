@@ -59,7 +59,7 @@ class MiniContainer extends StatelessWidget {
                 BoldText(text: '\$$price', fontSize: 16.sp)
               ],
             ),
-            SizedBox(height: 5.h,), //prev 3.5
+            SizedBox(height: 3.5.h,),
             Row(
               children: [
                 SizedBox(
@@ -68,7 +68,7 @@ class MiniContainer extends StatelessWidget {
                   child: Row(
                     children: [
                       SvgPicture.asset('assets/icons/location.svg',height: 16.h,width: 16.w,),
-                      SizedBox(width: 4.w,),
+                      SizedBox(width: 3.w,),
                       Text(
                         location,
                         overflow: TextOverflow.ellipsis ,
@@ -78,7 +78,6 @@ class MiniContainer extends StatelessWidget {
                           fontWeight: FontWeight.w400
                         ),
                       )
-                      //NormalText(text: location, fontSize: 12.sp),
                     ],
                   ),
                 ),
@@ -91,7 +90,7 @@ class MiniContainer extends StatelessWidget {
                   child: Row(
                     children: [
                       SvgPicture.asset('assets/icons/profile.svg',height: 16.h, width: 16.w,),
-                      SizedBox(width: 4.w,),
+                      SizedBox(width: 3.w,),
                       NormalText(text: '$joinedPerson joined', fontSize: 12.sp)
                     ],
                   ),
