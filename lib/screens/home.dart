@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
@@ -17,51 +18,61 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                    padding: EdgeInsets.only(left: 32.0),
-                    child: IconContainer(
+                    padding: EdgeInsets.fromLTRB(24.sp, 16.sp, 0, 0),
+                    child: const IconContainer(
                       iconName: 'menu.svg',
-                    )),
-                Column(
-                  children: [
-                    NormalText(text: 'Location', fontSize: 12),
-                    SemiBoldText(text: 'South City, Florida', fontSize: 12)
-                  ],
+                    )
+                  ),
+                Padding(
+                  padding: EdgeInsets.only(top: 17.sp),
+                  child: SizedBox(
+                    height: 30.h,
+                    width: 109.w,
+                    child: Column(
+                      children: [
+                        NormalText(text: 'Location', fontSize: 12.sp),
+                        BoldText(text: 'South City, Florida', fontSize: 12.sp)
+                      ],
+                    ),
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 32.0),
-                  child: IconContainer(
+                  padding: EdgeInsets.fromLTRB(0, 16.sp, 24.sp, 0),
+                  child: const IconContainer(
                     iconName: 'notification.svg',
                   ),
                 )
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(32, 25, 0, 24),
+              padding: EdgeInsets.fromLTRB(24.sp, 25.sp, 24.sp, 24.sp),
               child: SizedBox(
-                height: 48,
-                width: 327,
+                height: 48.h,
+                width: 327.w,
                 child: TextFormField(
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: searchBarColor,
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide.none),
+                          borderRadius: BorderRadius.circular(16.sp),
+                          borderSide: BorderSide.none
+                        ),
                       hintText: 'Search Destination',
-                      hintStyle: const TextStyle(
-                          fontFamily: sans,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
+                      hintStyle: TextStyle(
+                        fontFamily: sans,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400
+                      ),
                       prefixIcon: Padding(
-                        padding: const EdgeInsets.all(8),
+                        padding: EdgeInsets.all(16.sp),
                         child: Align(
-                          widthFactor: 0.2,
-                          heightFactor: 1,
+                          widthFactor: 0.2.w,
+                          heightFactor: 1.h,
                           child: SvgPicture.asset(
                             'assets/icons/search.svg',
                           ),
@@ -71,127 +82,128 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 24),
-              child: BoldText(text: 'Where do you want to be?', fontSize: 18),
+            Padding(
+              padding: EdgeInsets.only(left: 24.sp),
+              child: BoldText(text: 'Where do you want to be?', fontSize: 18.sp),
             ),
+           
+            SizedBox(height: 16.h,),
             SizedBox(
-              height: 250,
+              height: 197.h,
               width: double.infinity,
               child: ListView.builder(
-                  itemCount: 3,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 25),
-                          child: Container(
-                            height: index == 0 ? 197 : 146,
-                            width: 155,
-                            decoration: BoxDecoration(
-                                color: index == 0
-                                    ? firstPlaceContainerColor
-                                    : placeContainerColor,
-                                borderRadius: BorderRadius.circular(32)),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15.0),
-                                  child: SizedBox(
-                                    height: 50,
-                                    width: 112,
-                                    child: Text(
-                                      '${placeData[index]['place']}\nPlace',
-                                      style: TextStyle(
-                                          fontFamily: sans,
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.w500,
-                                          color: index == 0
-                                              ? Colors.black
-                                              : Colors.white),
+                itemCount: 3,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 25.sp),
+                        height: index == 0 ? 197.h : 146.h,
+                        width: 155.w,
+                        decoration: BoxDecoration(
+                            color: index == 0
+                                ? firstPlaceContainerColor
+                                : placeContainerColor,
+                            borderRadius: BorderRadius.circular(32.sp)
+                          ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: 15.0.sp),
+                              child: SizedBox(
+                                height: 50.h,
+                                width: 112.w,
+                                child: Text(
+                                  '${placeData[index]['place']}\nPlace',
+                                  style: TextStyle(
+                                    fontFamily: sans,
+                                    fontSize: 24.sp,
+                                    fontWeight: FontWeight.w500,
+                                    color: index == 0
+                                        ? Colors.black
+                                        : Colors.white
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: index == 0
-                                      ? const EdgeInsets.fromLTRB(27, 40, 0, 20)
-                                      : const EdgeInsets.fromLTRB(
-                                          27, 12, 0, 20),
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: index == 0
-                                        ? SvgPicture.asset(
-                                            'assets/icons/arrow.svg')
-                                        : const Padding(
-                                            padding: EdgeInsets.zero),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 24.0),
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 38,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            for (int i = 0;
-                                                i < placeData.length;
-                                                i++)
-                                              Align(
-                                                widthFactor: 0.5,
-                                                child: CircleAvatar(
-                                                  radius: 10,
-                                                  backgroundColor: Colors.white,
-                                                  backgroundImage: AssetImage(
-                                                      'assets/icons/${placeData[i]['image']}'),
-                                                ),
-                                              ),
-                                          ],
-                                        ),
-                                      ),
-                                      Text(
-                                        '${placeData[index]['suggestionNumber']}+',
-                                        style: TextStyle(
+                              ),
+                            Padding(
+                              padding: index == 0
+                                  ? EdgeInsets.fromLTRB(27.sp, 40.sp, 0, 20.sp)
+                                  : EdgeInsets.fromLTRB(27.sp, 12.sp, 0, 20.sp),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: index == 0
+                                    ? SvgPicture.asset('assets/icons/arrow.svg')
+                                    : const Padding(padding: EdgeInsets.zero),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 24.0.sp),
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    height: 24.h,
+                                    width: 82.w,
+                                    child: Row(
+                                      mainAxisAlignment:MainAxisAlignment.start,
+                                      children: [
+                                        for (int i = 0; i < placeData.length; i++)
+                                          Align(
+                                            widthFactor: 0.5.sp,
+                                            child: CircleAvatar(
+                                              radius: 12.sp,
+                                              backgroundColor: Colors.white,
+                                              backgroundImage: AssetImage(
+                                                  'assets/icons/${placeData[i]['image']}'),
+                                            ),
+                                          ),
+                                          SizedBox(width: 6.w,),
+                                          Text(
+                                          '${placeData[index]['suggestionNumber']}+',
+                                          style: TextStyle(
                                             fontFamily: sans,
-                                            fontSize: 12,
+                                            fontSize: 12.sp,
                                             fontWeight: FontWeight.w400,
                                             color: index == 0
                                                 ? Colors.black
-                                                : Colors.white),
-                                      )
-                                    ],
+                                                : Colors.white
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                )
-                              ],
-                            ),
-                          ),
+                                  
+                                ],
+                              ),
+                            )
+                          ],
                         ),
-                      ],
-                    );
-                  }),
+                      ),
+                    ],
+                  );
+                }
+              ),
             ),
+            SizedBox(height: 24.h,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: 24.sp),
               child: Row(
                 children: [
-                  const BoldText(text: 'Recommended', fontSize: 18),
-                  const SizedBox(
-                    width: 145,
+                  BoldText(text: 'Recommended', fontSize: 18.sp),
+                  SizedBox(
+                    width: 145.w,
                   ),
                   TextButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/listing');
                     },
-                    child: const Text(
+                    child: Text(
                       'See All',
                       style: TextStyle(
                         fontFamily: sans,
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
                         color: Colors.black54
                       ),
@@ -201,8 +213,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 218,
-              width: double.infinity,
+              height: 218.h,
+              width: double.infinity.w,
               child: ListView.builder(
                   itemCount: 2,
                   scrollDirection: Axis.horizontal,
@@ -232,7 +244,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        
       ),
     );
   }

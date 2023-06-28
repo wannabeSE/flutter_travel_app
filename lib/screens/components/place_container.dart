@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:travel_app/screens/components/mini_container.dart';
 
@@ -21,8 +22,8 @@ class PlaceContainer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-              height: 201,
-              width: 240,
+              height: 201.h,
+              width: 240.w,
               decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(32),
               image: DecorationImage(
@@ -39,10 +40,10 @@ class PlaceContainer extends StatelessWidget {
           price: price,
           location: location,
           joinedPerson: joinedPerson,
-          miniContainerHeight: 72,
-          miniContainerWidth: 208,
-          upperInfoPadding: 29,
-          lowerInfoPadding: 42,
+          miniContainerHeight: 72.h,
+          miniContainerWidth: 208.w,
+          upperInfoPadding: 29.sp,
+          lowerInfoPadding: 42.sp,
         )
       ],
     );

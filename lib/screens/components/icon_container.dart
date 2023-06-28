@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants/fonts_and_colors.dart';
@@ -13,8 +14,8 @@ class IconContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 16,
-      width: 16,
+      height: 24.h,
+      width: 24.w,
       decoration: const BoxDecoration(color: iconsBackgroundColor),
       child: SvgPicture.asset(
         'assets/icons/$iconName',

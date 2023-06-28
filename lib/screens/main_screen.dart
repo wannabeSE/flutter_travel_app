@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/screens/home.dart';
 import 'package:travel_app/screens/listing_screen.dart';
 import 'package:travel_app/screens/profile_screen.dart';
@@ -32,20 +33,20 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: screens[currentSelectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
+        padding: EdgeInsets.fromLTRB(24.sp, 18.sp, 24.sp, 24.sp),
         child: Stack(
           children: [
             Container(
-              height: 70,
-              width: 327,
+              height: 70.h,
+              width: 327.w,
               decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(35)),
+                  color: Colors.black, borderRadius: BorderRadius.circular(35.sp)),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(41, 23, 50, 15),
+              padding: EdgeInsets.fromLTRB(41.sp, 23.sp, 50.sp, 15.sp),
               child: SizedBox(
-                  height: 32,
-                  width: 246,
+                  height: 32.h,
+                  width: 246.w,
                   child: ListView.builder(
                       itemCount: 4,
                       scrollDirection: Axis.horizontal,
@@ -59,10 +60,10 @@ class _MainScreenState extends State<MainScreen> {
                           child: Padding(
                             padding: index == 4
                                 ? EdgeInsets.zero
-                                : const EdgeInsets.only(right: 50.0),
+                                : EdgeInsets.only(right: 50.0.sp),
                             child: Container(
-                              height: 24,
-                              width: 24,
+                              height: 24.h,
+                              width: 24.w,
                               decoration: const BoxDecoration(
                                   color: Colors.black, shape: BoxShape.circle),
                               child: Column(
@@ -74,16 +75,16 @@ class _MainScreenState extends State<MainScreen> {
                                         ? activeColor
                                         : inactiveColor,
                                   ),
-                                  const SizedBox(
-                                    height: 4,
+                                  SizedBox(
+                                    height: 2.h,
                                   ),
                                   Image.asset(
                                     'assets/icons/nav_ellipse.png',
                                     color: index == currentSelectedIndex 
                                     ? activeColor 
                                     : Colors.black,
-                                    height: 4,
-                                    width: 4,
+                                    height: 4.h,
+                                    width: 4.w,
                                   )
                                 ],
                               ),
