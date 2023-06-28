@@ -32,7 +32,7 @@ class MiniContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r)
       ),
       child: Container(
-        margin: EdgeInsets.all(16.w),
+        margin: EdgeInsets.fromLTRB(16.w, 16.h, 15.w, 16.h),
         height: 40.h, //inner info containing box
         width: 177.w,
         child: Column(
@@ -67,7 +67,7 @@ class MiniContainer extends StatelessWidget {
                   child: Row(
                     children: [
                       SvgPicture.asset('assets/icons/location.svg',height: 16.h,width: 16.w,),
-                      SizedBox(width: 4.w,),
+                      SizedBox(width: 3.w,),
                       NormalText(text: location, fontSize: 12.sp),
                     ],
                   ),
@@ -81,7 +81,7 @@ class MiniContainer extends StatelessWidget {
                   child: Row(
                     children: [
                       SvgPicture.asset('assets/icons/profile.svg',height: 16.h, width: 16.h,),
-                      SizedBox(width: 4.w,),
+                      SizedBox(width: 3.w,),
                       NormalText(text: '$joinedPerson joined', fontSize: 12.sp)
                     ],
                   ),

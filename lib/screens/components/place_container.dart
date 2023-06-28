@@ -20,8 +20,6 @@ class PlaceContainer extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          //padding: EdgeInsets.fromLTRB(24.sp, 11.sp, 0, 6.sp),
-          //margin: EdgeInsets.fromLTRB(24.sp, 11.sp, 0, 6.sp),
           height: 201.h,
           width: 240.w,
           decoration: BoxDecoration(
