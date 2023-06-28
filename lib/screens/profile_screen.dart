@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
+import 'package:travel_app/screens/components/icon_container.dart';
 import 'package:travel_app/screens/components/image_container.dart';
 import 'package:travel_app/shared/text_style.dart';
-
-import 'components/app_bar_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,12 +15,7 @@ class ProfileScreen extends StatelessWidget {
         child: SafeArea(
             child: Column(
               children: [
-                AppBarWidget(
-                  text: 'My Profile',
-                  route: 'listing',
-                  leftIconGap: 84.w,
-                  rightIconGap: 81.w,
-                ),
+                const AppBarWidget(),
                 SizedBox(
                   height: 30.h,
                 ),
@@ -120,7 +114,36 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
+class AppBarWidget extends StatelessWidget {
+  const AppBarWidget({
+    super.key,
+  });
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 32.h,
+      width: 327.w,
+      margin: EdgeInsets.only(left: 24.w, top: 16.h),
+      child: Row(
+        children: [
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/listing');
+            },
+            child: const IconContainer(
+              iconName: 'arrow_left.svg'
+              ),
+          ),
+          SizedBox(width: 84.w,),
+          SemiBoldText(text: 'My Profile', fontSize: 20.sp),
+          SizedBox(width: 81.w,),
+          const IconContainer(iconName: 'bookmark.svg')
+        ],
+      ),
+    );
+  }
+}
 
 class ProfileElements extends StatefulWidget {
   const ProfileElements({
@@ -149,7 +172,7 @@ class _ProfileElementsState extends State<ProfileElements> {
           });
         },
         child: Padding(
-          padding: EdgeInsets.only(right: 24.0.w),
+          padding: EdgeInsets.only(right: 22.0.w),
           child: Column(
             children: [
               Text(

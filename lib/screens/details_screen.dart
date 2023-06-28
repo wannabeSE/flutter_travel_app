@@ -18,23 +18,27 @@ class DetailsScreen extends StatelessWidget {
               children: [
             AppBarWidget(
               text: 'Details',
-              route: 'home',
+              route: 'main',
               leftIconGap: 99.w,
               rightIconGap: 96.w,
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(24.w, 30.h, 24.w, 16.h),
-              child: Container(
-                  height: 199.h,
-                  width: 327.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32.r),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage('assets/icons/${place['image']}'),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(24.w, 30.h, 24.w, 16.h),
+                  child: Container(
+                      height: 199.h,
+                      width: 327.w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(32.r),
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage('assets/icons/${place['image']}'),
+                        ),
+                      )
                     ),
-                  )
                 ),
+              ],
             ),
             Padding(
               padding: EdgeInsets.only(left: 23.0.w),
@@ -201,8 +205,9 @@ class DetailsMiniInfoContainer extends StatelessWidget {
           height: 72.h,
           width: 155.w,
           decoration: BoxDecoration(
-              color: firstPlaceContainerColor,
-              borderRadius: BorderRadius.circular(24.r)),
+            color: firstPlaceContainerColor,
+            borderRadius: BorderRadius.circular(24.r)
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

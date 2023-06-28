@@ -75,10 +75,10 @@ class ListingScreen extends StatelessWidget {
               ),
               Container(
                 height: 206.h,
-                width: 368.w,
+                width: double.infinity,
                 padding: EdgeInsets.only(left: 15.w, top:4.h, bottom: 1.h),
                 child: ListView.builder(
-                    itemCount: placeData.length,
+                    itemCount: 2,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Row(
