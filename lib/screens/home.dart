@@ -22,13 +22,13 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                    padding: EdgeInsets.fromLTRB(24.sp, 16.sp, 0, 0),
+                    padding: EdgeInsets.fromLTRB(24.w, 16.h, 0, 0),
                     child: const IconContainer(
                       iconName: 'menu.svg',
                     )
                   ),
                 Padding(
-                  padding: EdgeInsets.only(top: 17.sp),
+                  padding: EdgeInsets.only(top: 17.h),
                   child: SizedBox(
                     height: 30.h,
                     width: 109.w,
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 16.sp, 24.sp, 0),
+                  padding: EdgeInsets.fromLTRB(0, 16.h, 24.w, 0),
                   child: const IconContainer(
                     iconName: 'notification.svg',
                   ),
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(24.sp, 25.sp, 24.sp, 24.sp),
+              padding: EdgeInsets.fromLTRB(24.w, 25.h, 24.w, 24.h),
               child: SizedBox(
                 height: 48.h,
                 width: 327.w,
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                       filled: true,
                       fillColor: searchBarColor,
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16.sp),
+                          borderRadius: BorderRadius.circular(16.r),
                           borderSide: BorderSide.none
                         ),
                       hintText: 'Search Destination',
@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.w400
                       ),
                       prefixIcon: Padding(
-                        padding: EdgeInsets.all(16.sp),
+                        padding: EdgeInsets.all(16.w),
                         child: Align(
                           widthFactor: 0.2.w,
                           heightFactor: 1.h,
@@ -83,14 +83,14 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 24.sp),
+              padding: EdgeInsets.only(left: 24.w),
               child: BoldText(text: 'Where do you want to be?', fontSize: 18.sp),
             ),
            
             SizedBox(height: 16.h,),
             SizedBox(
               height: 197.h,
-              width: double.infinity,
+              width: double.infinity.w,
               child: ListView.builder(
                 itemCount: 3,
                 scrollDirection: Axis.horizontal,
@@ -99,19 +99,19 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 25.sp),
+                        margin: EdgeInsets.only(left: 25.w),
                         height: index == 0 ? 197.h : 146.h,
                         width: 155.w,
                         decoration: BoxDecoration(
                             color: index == 0
                                 ? firstPlaceContainerColor
                                 : placeContainerColor,
-                            borderRadius: BorderRadius.circular(32.sp)
+                            borderRadius: BorderRadius.circular(32.r)
                           ),
                         child: Column(
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(top: 15.0.sp),
+                              padding: EdgeInsets.only(top: 15.0.h),
                               child: SizedBox(
                                 height: 50.h,
                                 width: 112.w,
@@ -130,8 +130,8 @@ class HomeScreen extends StatelessWidget {
                               ),
                             Padding(
                               padding: index == 0
-                                  ? EdgeInsets.fromLTRB(27.sp, 40.sp, 0, 20.sp)
-                                  : EdgeInsets.fromLTRB(27.sp, 12.sp, 0, 20.sp),
+                                  ? EdgeInsets.fromLTRB(27.w, 40.h, 0, 20.h)
+                                  : EdgeInsets.fromLTRB(27.w, 12.h, 0, 20.h),
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: index == 0
@@ -140,7 +140,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 24.0.sp),
+                              padding: EdgeInsets.only(left: 24.w),
                               child: Row(
                                 children: [
                                   SizedBox(
@@ -151,9 +151,9 @@ class HomeScreen extends StatelessWidget {
                                       children: [
                                         for (int i = 0; i < placeData.length; i++)
                                           Align(
-                                            widthFactor: 0.5.sp,
+                                            widthFactor: 0.5.w,
                                             child: CircleAvatar(
-                                              radius: 12.sp,
+                                              radius: 12.r,
                                               backgroundColor: Colors.white,
                                               backgroundImage: AssetImage(
                                                   'assets/icons/${placeData[i]['image']}'),
@@ -187,32 +187,33 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24.h,),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.sp),
-              child: Row(
-                children: [
-                  BoldText(text: 'Recommended', fontSize: 18.sp),
-                  SizedBox(
-                    width: 145.w,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/listing');
-                    },
-                    child: Text(
-                      'See All',
-                      style: TextStyle(
-                        fontFamily: sans,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black54
-                      ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 24.0.w),
+                  child: BoldText(text: 'Recommended', fontSize: 18.sp),
+                ),
+                SizedBox(
+                  width: 145.w,
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/listing');
+                  },
+                  child: Text(
+                    'See All',
+                    style: TextStyle(
+                      fontFamily: sans,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black54
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(
+            Container(
+              padding: EdgeInsets.fromLTRB(24.w, 11.h, 0, 6.h),
               height: 218.h,
               width: double.infinity.w,
               child: ListView.builder(
@@ -237,6 +238,7 @@ class HomeScreen extends StatelessWidget {
                             joinedPerson: locationData[index]['joined'],
                           ),
                         ),
+                        SizedBox(width: 16.w,)
                       ],
                     );
                   }

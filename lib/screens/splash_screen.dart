@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
           ),
 
         Padding(
-          padding: EdgeInsets.all(24.sp),
+          padding: EdgeInsets.all(24.w),
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -32,12 +32,12 @@ class SplashScreen extends StatelessWidget {
               width: 327.w,
               decoration: BoxDecoration(
                   color: dialogBoxColor.withOpacity(0.7),
-                  borderRadius: BorderRadius.circular(32.sp)
+                  borderRadius: BorderRadius.circular(32.r)
                 ),
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(52.sp, 24.sp, 51.sp, 16.sp),
+                    padding: EdgeInsets.fromLTRB(52.w, 24.h, 51.w, 16.h),
                     child: SizedBox(
                       width: 224.w,
                       child: Text(
@@ -61,7 +61,7 @@ class SplashScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(24.sp),
+                    padding: EdgeInsets.all(24.w),
                     child: SizedBox(
                         height: 70.h,
                         width: 279.w,
@@ -72,7 +72,7 @@ class SplashScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(35.sp)
+                              borderRadius: BorderRadius.circular(35.r)
                             )
                           ),
                           child: SemiBoldText(

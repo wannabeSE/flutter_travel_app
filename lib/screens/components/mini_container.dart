@@ -23,59 +23,72 @@ class MiniContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(24.sp, 0, 24.sp, 24.sp),
-        child: Container(
-          height: miniContainerHeight,
-          width: miniContainerWidth,
-          decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.82),
-              borderRadius: BorderRadius.circular(16.sp)),
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(16.sp , 16.sp, 16.sp, 10.sp),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 16.h,
-                      width: 111.w,
-                      child: Text(
-                        locationType,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontFamily: sans,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400),
-                      ),
+    return Container(
+      margin: EdgeInsets.fromLTRB(16.w, 113.h, 16.w, 16.h),
+      height: miniContainerHeight,
+      width: miniContainerWidth,
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.82),
+        borderRadius: BorderRadius.circular(16.r)
+      ),
+      child: Container(
+        margin: EdgeInsets.all(16.w),
+        height: 40.h, //inner info containing box
+        width: 177.w,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                SizedBox(
+                  height: 16.h,
+                  width: 110.w,
+                  child: Text(
+                    locationType,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontFamily: sans,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400
                     ),
-                    SizedBox(
-                      width: upperInfoPadding,
-                    ),
-                    BoldText(text: '\$$price', fontSize: 16.sp)
-                  ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16.sp,
+                SizedBox(
+                  width: upperInfoPadding,
                 ),
-                child: Row(
-                  children: [
-                    SvgPicture.asset('assets/icons/location.svg'),
-                    NormalText(text: location, fontSize: 12.sp),
-                    SizedBox(
-                      width: lowerInfoPadding,
-                    ),
-                    SvgPicture.asset('assets/icons/profile.svg'),
-                    NormalText(text: '$joinedPerson joined', fontSize: 12.sp)
-                  ],
+                BoldText(text: '\$$price', fontSize: 16.sp)
+              ],
+            ),
+            SizedBox(height: 3.5.h,),
+            Row(
+              children: [
+                SizedBox(
+                  height: 16.h,
+                  width: 59.w,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset('assets/icons/location.svg',height: 16.h,width: 16.w,),
+                      SizedBox(width: 4.w,),
+                      NormalText(text: location, fontSize: 12.sp),
+                    ],
+                  ),
                 ),
-              )
-            ],
-          ),
+                SizedBox(
+                  width: lowerInfoPadding,
+                ),
+                SizedBox(
+                  height: 16.h,
+                  width: 75.w,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset('assets/icons/profile.svg',height: 16.h, width: 16.h,),
+                      SizedBox(width: 4.w,),
+                      NormalText(text: '$joinedPerson joined', fontSize: 12.sp)
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
         ),
       ),
     );

@@ -33,17 +33,19 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: screens[currentSelectedIndex],
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(24.sp, 18.sp, 24.sp, 24.sp),
+        padding: EdgeInsets.fromLTRB(24.w, 18.h, 24.w, 24.h),
         child: Stack(
           children: [
             Container(
               height: 70.h,
               width: 327.w,
               decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(35.sp)),
+                  color: Colors.black, 
+                  borderRadius: BorderRadius.circular(35.r)
+                ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(41.sp, 23.sp, 50.sp, 15.sp),
+              padding: EdgeInsets.fromLTRB(41.w, 23.h, 40.w, 15.h),
               child: SizedBox(
                   height: 32.h,
                   width: 246.w,
@@ -57,37 +59,35 @@ class _MainScreenState extends State<MainScreen> {
                               currentSelectedIndex = index;
                             });
                           },
-                          child: Padding(
-                            padding: index == 4
-                                ? EdgeInsets.zero
-                                : EdgeInsets.only(right: 50.0.sp),
-                            child: Container(
-                              height: 24.h,
-                              width: 24.w,
-                              decoration: const BoxDecoration(
-                                  color: Colors.black, shape: BoxShape.circle),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/icons/${bottomNavbarElement[index]}',
-                                    //color: Colors.black,
-                                    color: index == currentSelectedIndex
-                                        ? activeColor
-                                        : inactiveColor,
-                                  ),
-                                  SizedBox(
-                                    height: 2.h,
-                                  ),
-                                  Image.asset(
-                                    'assets/icons/nav_ellipse.png',
-                                    color: index == currentSelectedIndex 
-                                    ? activeColor 
-                                    : Colors.black,
-                                    height: 4.h,
-                                    width: 4.w,
-                                  )
-                                ],
-                              ),
+                          child: Container(
+                            height: 24.h,
+                            width: 24.w,
+                            margin: EdgeInsets.only(right: 50.w,),
+                            decoration: const BoxDecoration(
+                              color: Colors.black, 
+                              shape: BoxShape.circle
+                            ),
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  'assets/icons/${bottomNavbarElement[index]}',
+                                  //color: Colors.black,
+                                  color: index == currentSelectedIndex
+                                      ? activeColor
+                                      : inactiveColor,
+                                ),
+                                SizedBox(
+                                  height: 2.h,
+                                ),
+                                Image.asset(
+                                  'assets/icons/nav_ellipse.png',
+                                  color: index == currentSelectedIndex 
+                                  ? activeColor 
+                                  : Colors.black,
+                                  height: 4.h,
+                                  width: 4.w,
+                                )
+                              ],
                             ),
                           ),
                         );
