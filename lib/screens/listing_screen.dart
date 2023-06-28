@@ -78,7 +78,7 @@ class ListingScreen extends StatelessWidget {
                 width: 368.w,
                 padding: EdgeInsets.only(left: 15.w, top:4.h, bottom: 1.h),
                 child: ListView.builder(
-                    itemCount: 2,
+                    itemCount: placeData.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Row(
@@ -89,7 +89,9 @@ class ListingScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => DetailsScreen(
-                                          place: locationData[index])));
+                                          place: locationData[index])
+                                          )
+                                        );
                             },
                             child: PlaceContainer(
                               imagePath: locationData[index]['image'],

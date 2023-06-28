@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
-
 import 'package:travel_app/shared/text_style.dart';
+import 'components/app_bar_widget.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key, required this.place});
@@ -14,54 +15,54 @@ class DetailsScreen extends StatelessWidget {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // const AppBarWidget(
-          //   leftIconPath: 'arrow_left.svg',
-          //   text: 'Details',
-          //   rightIconPath: 'bookmark.svg',
-          //   leftIconDistance: 116.5,
-          //   rightIconDistance: 104,
-          // ),
+          AppBarWidget(
+            text: 'Details',
+            route: 'home',
+            leftIconGap: 99.w,
+            rightIconGap: 96.w,
+          ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(32, 30, 0, 16),
+            padding: EdgeInsets.fromLTRB(24.w, 30.h, 24.w, 16.h),
             child: Container(
-                height: 199,
-                width: 327,
+                height: 199.h,
+                width: 327.w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32),
+                  borderRadius: BorderRadius.circular(32.r),
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/icons/${place['image']}'),
                   ),
-                )),
+                )
+              ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 23.0),
-            child: SemiBoldText(text: place['name'], fontSize: 24,),
+            padding: EdgeInsets.only(left: 23.0.w),
+            child: SemiBoldText(text: place['name'], fontSize: 24.sp,),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(24, 8, 0, 26),
+            padding: EdgeInsets.fromLTRB(24.w, 8.h, 0, 26.h),
             child: Row(
               children: [
                 SizedBox(
-                  height: 16,
-                  width: 59,
+                  height: 16.h,
+                  width: 59.w,
                   child: Row(
                     children: [
-                      SvgPicture.asset('${defaultIconLocation}location.svg'),
-                      NormalText(text: place['point'], fontSize: 12)
+                      SvgPicture.asset('${defaultIconLocation}location.svg',height: 16.h,width: 16.h,),
+                      NormalText(text: place['point'], fontSize: 12.sp)
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 42,
+                SizedBox(
+                  width: 42.w,
                 ),
                 SizedBox(
-                  height: 16,
-                  width: 75,
+                  height: 16.h,
+                  width: 75.w,
                   child: Row(
                     children: [
-                      SvgPicture.asset('${defaultIconLocation}profile.svg'),
-                      NormalText(text: '${place['joined']} Joined', fontSize: 12)
+                      SvgPicture.asset('${defaultIconLocation}profile.svg',height: 16.h, width: 16.w,),
+                      NormalText(text: '${place['joined']} Joined', fontSize: 12.sp)
 
                     ],
                   ),
@@ -70,45 +71,45 @@ class DetailsScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(24, 0, 0, 24),
+            padding: EdgeInsets.fromLTRB(24.w, 0, 0, 24.h),
             child: SizedBox(
-              height: 160,
-              width: 327,
+              height: 160.h,
+              width: 327.w,
               child: Row(
                 children: [
                   Column(
                     children: [
                       Container(
-                        height: 160,
-                        width: 156,
+                        height: 160.h,
+                        width: 156.w,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32),
+                            borderRadius: BorderRadius.circular(32.r),
                             color: searchBarColor,
-                            boxShadow: const [
+                            boxShadow: [
                               BoxShadow(
-                                color: Color(0x0a141513),
-                                blurRadius: 25,
-                                offset: Offset(0, 4),
+                                color: const Color(0x0a141513),
+                                blurRadius: 25.r,
+                                offset: Offset(0, 4.sp),
                               )
                             ]),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(24, 32, 0, 0),
+                          padding: EdgeInsets.fromLTRB(24.w, 32.h, 0, 0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.asset(
                                 '${defaultIconLocation}itinerary.png',
-                                height: 48,
-                                width: 48,
+                                height: 48.h,
+                                width: 48.w,
                               ),
-                              const Padding(
-                                padding: EdgeInsets.only(top: 10.0),
+                              Padding(
+                                padding: EdgeInsets.only(top: 10.0.h),
                                 child: SizedBox(
-                                  height: 44,
-                                  width: 77.5,
+                                  height: 44.h,
+                                  width: 77.5.w,
                                   child: SemiBoldText(
                                     text: 'Choose\nDates', 
-                                    fontSize: 20
+                                    fontSize: 20.sp
                                   ),
                                 ),
                               )
@@ -118,32 +119,33 @@ class DetailsScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  const SizedBox(
-                    width: 16,
+                  SizedBox(
+                    width: 16.w,
                   ),
-                  const Column(
+                  Column(
                     children: [
-                      DetailsMiniInfoContainer(
+                      const DetailsMiniInfoContainer(
                         imageName: 'weather.png',
                         text: 'Mon 07 Oct',
                         value: '24°',
                       ),
                       SizedBox(
-                        height: 16,
+                        height: 16.h,
                       ),
-                      DetailsMiniInfoContainer(
-                          text: 'Package Start',
-                          imageName: 'save_money.png',
-                          value: '\$124')
+                      const DetailsMiniInfoContainer(
+                        text: 'Package Start',
+                        imageName: 'save_money.png',
+                        value: '\$124'
+                      )
                     ],
                   ),
                 ],
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 25.0),
-            child: BoldText(text: 'About Destination', fontSize: 18),
+          Padding(
+            padding: EdgeInsets.only(left: 25.0.w),
+            child: BoldText(text: 'About Destination', fontSize: 18.sp),
 
           ),
           const Expanded(
@@ -155,17 +157,19 @@ class DetailsScreen extends StatelessWidget {
             ),
           )),
           Padding(
-            padding: const EdgeInsets.only(left: 31),
+            padding: EdgeInsets.fromLTRB(24.w, 29.h, 24.w, 26.h),
             child: SizedBox(
-              height: 70,
-              width: 327,
+              height: 70.h,
+              width: 327.w,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(35))),
+                    backgroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(35.r)
+                    )
+                  ),
                   onPressed: () {},
-                  child: const SemiBoldText(text: 'Book Now', fontSize: 20,),
+                  child: SemiBoldText(text: 'Book Now', fontSize: 20.sp,),
                 ),
             ),
           )
@@ -205,13 +209,20 @@ class _ExpandTextWidgetState extends State<ExpandTextWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(26, 16, 23, 29),
+      padding: EdgeInsets.fromLTRB(26.w, 16.h, 23.w, 29.h),
       child: Container(
         child: secondHalfText.isEmpty
             ? Text(widget.text)
             : Column(
                 children: [
-                  Text(flag ? firstHalfText : widget.text),
+                  Text(
+                    flag ? firstHalfText : widget.text,
+                    style: TextStyle(
+                      fontFamily: sans,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400
+                    ),
+                  ),
                   Row(
                     children: [
                       InkWell(
@@ -220,7 +231,7 @@ class _ExpandTextWidgetState extends State<ExpandTextWidget> {
                             flag = !flag;
                           });
                         },
-                        child: const BoldText(text: '...Read More', fontSize: 14),
+                        child: BoldText(text: '...Read More', fontSize: 14.sp),
                         
                       ),
                     ],
@@ -246,33 +257,33 @@ class DetailsMiniInfoContainer extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 72,
-          width: 155,
+          height: 72.h,
+          width: 155.w,
           decoration: BoxDecoration(
               color: firstPlaceContainerColor,
-              borderRadius: BorderRadius.circular(24)),
+              borderRadius: BorderRadius.circular(24.r)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 0, 8),
+                padding: EdgeInsets.fromLTRB(16.w, 16.h, 0, 8.h),
                 child: Text(
                   text,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontFamily: sans,
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: EdgeInsets.only(left: 16.0.w),
                 child: Row(
                   children: [
                     Image.asset('$defaultIconLocation$imageName'),
-                    const SizedBox(
-                      width: 11,
+                    SizedBox(
+                      width: 11.w,
                     ),
-                    SemiBoldText(text: value, fontSize: 20)
+                    SemiBoldText(text: value, fontSize: 20.sp)
                   ],
                 ),
               )

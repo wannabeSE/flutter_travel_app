@@ -42,7 +42,7 @@ class PlaceContainer extends StatelessWidget {
           miniContainerWidth: 208.w,
           upperInfoPadding: 29.w,
           lowerInfoPadding: 42.w,
-          locationTextContainerWidth: 59.w,
+          locationTextContainerWidth: 60.w,
         )
       ],
     );
