@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/appbar_widget.dart';
@@ -13,55 +14,55 @@ class ProfileScreen extends StatelessWidget {
       body: SafeArea(
           child: Column(
         children: [
-          const AppBarWidget(
+          AppBarWidget(
               leftIconPath: 'arrow_left.svg',
               text: 'My Profile',
               rightIconPath: 'bookmark.svg',
-              leftIconDistance: 101,
-              rightIconDistance: 87),
-          const SizedBox(
-            height: 30,
+              leftIconDistance: 101.w,
+              rightIconDistance: 87.w),
+          SizedBox(
+            height: 30.h,
           ),
           Stack(
             children: [
               Container(
-                height: 140,
-                width: 140,
+                height: 140.h,
+                width: 140.w,
                 decoration: BoxDecoration(
                     color: circularContainerColorWithOpacity,
                     shape: BoxShape.circle),
               ),
-              const Padding(
-                padding: EdgeInsets.all(10.0),
+              Padding(
+                padding: EdgeInsets.all(10.0.w),
                 child: CircleAvatar(
-                  radius: 60,
+                  radius: 60.r,
                   backgroundColor: circleAvatarColor,
-                  foregroundImage: AssetImage('assets/icons/dp.png'),
+                  foregroundImage: const AssetImage('assets/icons/dp.png'),
                 ),
               ),
             ],
           ),
-          const SizedBox(
-            height: 16,
+          SizedBox(
+            height: 16.h,
           ),
-          const BoldText(text: 'Sam Smith', fontSize: 24),
-          const SizedBox(
-            height: 8,
+          BoldText(text: 'Sam Smith', fontSize: 24.sp),
+          SizedBox(
+            height: 8.h,
           ),
-          const Text(
+          Text(
             'Premium Member',
             style: TextStyle(
                 fontFamily: sans,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
-                color: Color(0xff9c9c9c)),
+                color: const Color(0xff9c9c9c)),
           ),
-          const SizedBox(
-            height: 24,
+          SizedBox(
+            height: 24.h,
           ),
-          const SizedBox(
-            width: 156,
-            child: Row(
+          SizedBox(
+            width: 156.h,
+            child: const Row(
               children: [
                 SocialIconContainer(
                   iconName: 'facebook.svg',
@@ -75,28 +76,29 @@ class ProfileScreen extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 24,
+          SizedBox(
+            height: 24.h,
           ),
-          const SizedBox(height: 32, width: 236, child: ProfileElements()),
-          const SizedBox(
-            height: 24,
+          SizedBox(height: 32.h, width: 236.w, child: const ProfileElements()),
+          SizedBox(
+            height: 24.h,
           ),
-          const SizedBox(
-            height: 218,
-            width: 394,
+          SizedBox(
+            height: 218.h,
+            width: 394.w,
             child: ImageContainer(
                 imagePath: 'moon.png',
-                containerHeight: 201,
-                containerWidth: 327,
+                containerHeight: 201.h,
+                containerWidth: 327.w,
                 locationType: 'Dark Mountain',
                 price: '165',
                 location: 'Pennsylvania',
                 joinedPerson: '12',
-                upperInfoPadding: 110,
-                lowerInfoPadding: 15,
-                miniContainerHeight: 72,
-                miniContainerWidth: 295
+                upperInfoPadding: 110.w,
+                lowerInfoPadding: 15.w,
+                miniContainerHeight: 72.h,
+                miniContainerWidth: 295.w,
+                locationTextContainerWidth: 86.w,
             ),
           )
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/screens/components/icon_container.dart';
 import 'package:travel_app/shared/text_style.dart';
 
@@ -20,7 +21,7 @@ class AppBarWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 32),
+          padding: EdgeInsets.only(left: 23.w),
           child: IconContainer(
             iconName: leftIconPath,
           ),
@@ -28,7 +29,7 @@ class AppBarWidget extends StatelessWidget {
         SizedBox(
           width: leftIconDistance,
         ),
-        SemiBoldText(text: text, fontSize: 20),
+        SemiBoldText(text: text, fontSize: 20.sp),
         SizedBox(
           width: rightIconDistance,
         ),

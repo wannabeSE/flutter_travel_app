@@ -8,7 +8,7 @@ class MiniContainer extends StatelessWidget {
   final String locationType;
   final String price, joinedPerson;
   final String location;
-  final double upperInfoPadding, lowerInfoPadding, miniContainerHeight, miniContainerWidth;
+  final double upperInfoPadding, lowerInfoPadding, locationTextContainerWidth, miniContainerHeight, miniContainerWidth;
   const MiniContainer({
     super.key,
     required this.locationType,
@@ -18,7 +18,8 @@ class MiniContainer extends StatelessWidget {
     required this.upperInfoPadding, 
     required this.lowerInfoPadding, 
     required this.miniContainerHeight, 
-    required this.miniContainerWidth,
+    required this.miniContainerWidth, 
+    required this.locationTextContainerWidth,
   });
 
   @override
@@ -58,17 +59,26 @@ class MiniContainer extends StatelessWidget {
                 BoldText(text: '\$$price', fontSize: 16.sp)
               ],
             ),
-            SizedBox(height: 3.5.h,),
+            SizedBox(height: 5.h,), //prev 3.5
             Row(
               children: [
                 SizedBox(
                   height: 16.h,
-                  width: 59.w,
+                  width: locationTextContainerWidth,
                   child: Row(
                     children: [
                       SvgPicture.asset('assets/icons/location.svg',height: 16.h,width: 16.w,),
-                      SizedBox(width: 3.w,),
-                      NormalText(text: location, fontSize: 12.sp),
+                      SizedBox(width: 4.w,),
+                      Text(
+                        location,
+                        overflow: TextOverflow.ellipsis ,
+                        style: TextStyle(
+                          fontFamily: sans,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w400
+                        ),
+                      )
+                      //NormalText(text: location, fontSize: 12.sp),
                     ],
                   ),
                 ),
@@ -80,8 +90,8 @@ class MiniContainer extends StatelessWidget {
                   width: 75.w,
                   child: Row(
                     children: [
-                      SvgPicture.asset('assets/icons/profile.svg',height: 16.h, width: 16.h,),
-                      SizedBox(width: 3.w,),
+                      SvgPicture.asset('assets/icons/profile.svg',height: 16.h, width: 16.w,),
+                      SizedBox(width: 4.w,),
                       NormalText(text: '$joinedPerson joined', fontSize: 12.sp)
                     ],
                   ),

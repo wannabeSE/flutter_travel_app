@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/constants/dummy_data.dart';
 import 'package:travel_app/constants/fonts_and_colors.dart';
 import 'package:travel_app/screens/components/icon_container.dart';
@@ -13,112 +14,121 @@ class ListingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 32.0),
-                  child: GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const IconContainer(iconName: 'arrow_left.svg')),
-                ),
-                const SizedBox(
-                  width: 85,
-                ),
-                const SemiBoldText(text: 'Natural Place', fontSize: 20)
-              ],
-            ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(24, 30, 0, 24),
-              child: ListOfCategoryContainers(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 24.0),
-              child: Row(
-                children: [
-                  const SizedBox(
-                    height: 25,
-                    width: 177,
-                    child: Text(
-                      'Popular in Quite Place',
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontFamily: sans,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 230.w,
+                height: 32.h,
+                margin: EdgeInsets.only(left: 23.w, top: 16.h),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: const IconContainer(iconName: 'arrow_left.svg')
+                      ),
+                    SizedBox(
+                      width: 66.w,
                     ),
-                  ),
-                  const SizedBox(
-                    width: 102,
-                  ),
-                  TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'See All',
-                        style: TextStyle(
-                            fontFamily: sans,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black54),
-                      ))
-                ],
+                    SemiBoldText(text: 'Natural Place', fontSize: 20.sp)
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 206,
-              width: 368,
-              child: ListView.builder(
-                  itemCount: 2,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Row(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DetailsScreen(
-                                        place: locationData[index])));
-                          },
-                          child: PlaceContainer(
-                            imagePath: locationData[index]['image'],
-                            locationType: locationData[index]['name'],
-                            location: locationData[index]['point'],
-                            price: locationData[index]['price'],
-                            joinedPerson: locationData[index]['joined'],
+      
+              const ListOfCategoryContainers(),
+              Padding(
+                padding: EdgeInsets.only(left: 25.0.w, top: 24.h, bottom: 12.h),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 25.h,
+                      width: 177.w,
+                      child: Text(
+                        'Popular in Quite Place',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontFamily: sans,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 102.w,
+                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'See All',
+                          style: TextStyle(
+                              fontFamily: sans,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black54),
+                        ))
+                  ],
+                ),
+              ),
+              Container(
+                height: 206.h,
+                width: 368.w,
+                padding: EdgeInsets.only(left: 15.w, top:4.h, bottom: 1.h),
+                child: ListView.builder(
+                    itemCount: 2,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Row(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailsScreen(
+                                          place: locationData[index])));
+                            },
+                            child: PlaceContainer(
+                              imagePath: locationData[index]['image'],
+                              locationType: locationData[index]['name'],
+                              location: locationData[index]['point'],
+                              price: locationData[index]['price'],
+                              joinedPerson: locationData[index]['joined'],
+                            ),
                           ),
-                        )
-                      ],
-                    );
-                  }),
-            ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(23, 23, 0, 10),
-              child: BoldText(text: 'All Natural Places', fontSize: 18)
-            ),
-            const SizedBox(
-              height: 218,
-              width: 394,
-              child: ImageContainer(
-                  imagePath: 'moon.png',
-                  containerHeight: 201,
-                  containerWidth: 327,
-                  locationType: 'Dark Mountain',
-                  price: '165',
-                  location: 'Pennsylvania',
-                  joinedPerson: '12',
-                  upperInfoPadding: 110,
-                  lowerInfoPadding: 15,
-                  miniContainerHeight: 72,
-                  miniContainerWidth: 295),
-            )
-          ],
+                          SizedBox(width: 16.w,)
+                        ],
+                      );
+                    }),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(23.w, 23.h, 0, 10.h),
+                child: BoldText(text: 'All Natural Places', fontSize: 18.sp)
+              ),
+              Container(
+                height: 218.h,
+                width: 394.w,
+                margin: EdgeInsets.fromLTRB(24.w, 11.h, 24.w, 6.h),
+                child: ImageContainer(
+                    imagePath: 'moon.png',
+                    containerHeight: 201.h,
+                    containerWidth: 327.w,
+                    locationType: 'Dark Mountain',
+                    price: '165',
+                    location: 'Pennsylvania',
+                    joinedPerson: '12',
+                    upperInfoPadding: 110.w,
+                    lowerInfoPadding: 10.w,
+                    miniContainerHeight: 72.h,
+                    miniContainerWidth: 295.w,
+                    locationTextContainerWidth: 96.w,
+                  ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -140,9 +150,10 @@ class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
   List categories = ['All', 'Mountain', 'Forest', 'Hills'];
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40,
-      width: 456,
+    return Container(
+      height: 40.h,
+      //width: double.infinity,
+      margin: EdgeInsets.only(left: 24.w, top: 30.h),
       child: ListView.builder(
           itemCount: 4,
           scrollDirection: Axis.horizontal,
@@ -150,7 +161,7 @@ class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
             return Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
+                  padding: EdgeInsets.only(right: 8.0.w),
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
@@ -158,42 +169,44 @@ class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
                       });
                     },
                     child: Container(
-                      height: 40,
-                      width: index == 1 ? 126 : 88,
+                      height: 40.h,
+                      width: index == 1 ? 126.w : 88.w,
                       decoration: BoxDecoration(
                           border: Border.all(
-                            width: 1,
+                            width: 1.w,
                             color: index == selectedIndex
                                 ? categoryActiveColor
                                 : categoryMainColor,
                           ),
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(16.r),
                           color: index == selectedIndex
                               ? categoryActiveColor
-                              : null),
+                              : null
+                        ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
                             'assets/icons/category.png',
-                            height: 16,
-                            width: 16,
+                            height: 16.h,
+                            width: 16.h,
                             color: index == selectedIndex
                                 ? categoryActiveIconFontColor
                                 : categoryMainColor,
                           ),
-                          const SizedBox(
-                            width: 8,
+                          SizedBox(
+                            width: 8.w,
                           ),
                           Text(
                             categories[index],
                             style: TextStyle(
-                                fontFamily: sans,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: index == selectedIndex
-                                    ? categoryActiveIconFontColor
-                                    : categoryMainColor),
+                              fontFamily: sans,
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
+                              color: index == selectedIndex
+                                  ? categoryActiveIconFontColor
+                                  : categoryMainColor
+                            ),
                           ),
                         ],
                       ),
@@ -202,7 +215,8 @@ class _ListOfCategoryContainersState extends State<ListOfCategoryContainers> {
                 )
               ],
             );
-          }),
+          }
+        ),
     );
   }
 }
